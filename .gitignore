@@ -1,0 +1,6 @@
+__pycache__
+vendors/
+schema.json
+.vscode/
+build/
+kivera.egg-info/
