@@ -1,4 +1,11 @@
-__version__ = "v1.2.0"
+__version__ = "v1.1.0"
+import json
+import requests
+from gql import Client as GqlClient
+from gql.transport.aiohttp import AIOHTTPTransport
+from gql.transport.exceptions import TransportQueryError
+from jose import jwt, exceptions
+from datetime import datetime, timedelta
 from kivera.config import ConfigMethods
 from kivera.counters import CountersMethods
 from kivera.globalpolicyfunctions import GlobalPolicyFunctionsMethods
@@ -31,13 +38,6 @@ from kivera.trailblazers import TrailBlazersMethods
 from kivera.trailblazerapikeys import TrailblazerApiKeysMethods
 from kivera.userapikeys import UserApiKeysMethods
 from kivera.users import UsersMethods
-from gql import Client as GqlClient
-from gql.transport.aiohttp import AIOHTTPTransport
-from gql.transport.exceptions import TransportQueryError
-import json
-import requests
-from jose import jwt, exceptions
-from datetime import datetime, timedelta
 
 class ClientError(Exception):
     def __init__(self, message):
