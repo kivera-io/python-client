@@ -1,4 +1,4 @@
-__version__ = "v1.1.0"
+__version__ = "v1.3.0"
 import json
 import requests
 from gql import Client as GqlClient
