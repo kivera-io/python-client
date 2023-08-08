@@ -1,4 +1,3 @@
-
 from .get import getMethods
 
 class RuleParametersMethods(

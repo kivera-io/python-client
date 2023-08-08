@@ -1,4 +1,3 @@
-
 from .attach import attachMethods
 from .get import getMethods
 
