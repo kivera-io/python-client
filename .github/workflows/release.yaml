@@ -1,0 +1,32 @@
+name: Version and Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITUSER: ${{ github.actor }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup
+        run: |
+          git config --global user.name "$GITUSER"
+          git config --global user.email "${GITUSER}@users.noreply.github.com"
+          npm install -g standard-version
+      - name: Version
+        run: |
+          standard-version --release-as minor --skip.changelog --skip.commit
+          git push --follow-tags origin $(git describe --tag)
+      - name: Release
+        run: |
+          tag=$(git describe --tag)
+          msg=$(git log -1 --pretty=format:%B)
+          gh release create ${tag} --title "Release ${tag}" --notes "${msg}"
