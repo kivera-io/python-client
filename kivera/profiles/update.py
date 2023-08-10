@@ -20,7 +20,8 @@ class updateMethods:
             "name": name,
             "description": description,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProfileV2Query = """
     mutation UpdateProfileV2($id: Int!, $description: String!, $name: String!, $rules: [ProfileRules_insert_input!] = [], $tags: jsonb! = []) {
@@ -52,4 +53,5 @@ class updateMethods:
             "rules": rules,
             "tags": tags,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProfileV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

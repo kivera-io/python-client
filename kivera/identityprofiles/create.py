@@ -21,4 +21,5 @@ class createMethods:
             "identity_id": identity_id,
             "profile_id": profile_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateIdentityProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

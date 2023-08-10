@@ -24,7 +24,8 @@ class updateMethods:
             "user_id": user_id,
             "changes": changes,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateUser"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateUserInfoQuery = """
     mutation UpdateUserInfo($id: String!, $given_name: String!, $family_name: String!) {
@@ -46,7 +47,8 @@ class updateMethods:
             "given_name": given_name,
             "family_name": family_name,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateUserInfo"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateUserVerificationStatusQuery = """
     mutation UpdateUserVerificationStatus($user_id: String!, $verified: Boolean!, $given_name: String!, $family_name: String!, $country_iso_code: String!) {
@@ -73,4 +75,5 @@ class updateMethods:
             "family_name": family_name,
             "country_iso_code": country_iso_code,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateUserVerificationStatus"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

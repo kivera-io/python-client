@@ -25,7 +25,8 @@ class listMethods:
         query = gql(self._ListNotificationMonitorsQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListNotificationMonitors"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _ListNotificationMonitorsFullQuery = """
     query ListNotificationMonitorsFull {
@@ -55,4 +56,5 @@ class listMethods:
         query = gql(self._ListNotificationMonitorsFullQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListNotificationMonitorsFull"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

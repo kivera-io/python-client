@@ -31,7 +31,8 @@ class deleteMethods:
         variables = {
             "profile_id": profile_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteProfilesQuery = """
     mutation DeleteProfiles($ids: [Int!]!) {
@@ -52,7 +53,8 @@ class deleteMethods:
         variables = {
             "ids": ids,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteProfiles"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteRuleFromProfileQuery = """
     mutation DeleteRuleFromProfile($profile_id: Int!, $rule_id: Int!) {
@@ -73,7 +75,8 @@ class deleteMethods:
             "profile_id": profile_id,
             "rule_id": rule_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteRuleFromProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteRulesFromProfileQuery = """
     mutation DeleteRulesFromProfile($profile_id: Int!) {
@@ -93,4 +96,5 @@ class deleteMethods:
         variables = {
             "profile_id": profile_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteRulesFromProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

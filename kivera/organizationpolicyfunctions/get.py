@@ -17,7 +17,8 @@ class getMethods:
         query = gql(self._GetOrganizationPolicyFunctionQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetOrganizationPolicyFunction"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetOrganizationPolicyFunctionV2Query = """
     query GetOrganizationPolicyFunctionV2($id: Int!,) {
@@ -34,4 +35,5 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetOrganizationPolicyFunctionV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

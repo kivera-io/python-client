@@ -35,7 +35,8 @@ class getMethods:
         variables = {
             "user_id": user_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetUserById"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetUserDetailsQuery = """
     query GetUserDetails($email: String!) {
@@ -69,4 +70,5 @@ class getMethods:
         variables = {
             "email": email,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetUserDetails"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

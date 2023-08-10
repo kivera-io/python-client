@@ -19,4 +19,5 @@ class createMethods:
             "config_version": config_version,
             "config": config,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateProxyDeployment"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

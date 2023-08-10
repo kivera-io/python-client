@@ -24,4 +24,5 @@ class listMethods:
         query = gql(self._ListProxyProvidersQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListProxyProviders"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

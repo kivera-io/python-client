@@ -39,7 +39,8 @@ class createMethods:
             "allow_noncloud_traffic": allow_noncloud_traffic,
             "default_mode": default_mode,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateProxy"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _CreateProxyV2Query = """
     mutation CreateProxyV2(
@@ -92,4 +93,5 @@ class createMethods:
         query = gql(self._CreateProxyV2Query)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateProxyV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

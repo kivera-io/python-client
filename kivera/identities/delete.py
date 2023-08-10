@@ -22,7 +22,8 @@ class deleteMethods:
         variables = {
             "ids": ids,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteIdentities"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteIdentityQuery = """
     mutation DeleteIdentity($id: Int!) {
@@ -49,4 +50,5 @@ class deleteMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteIdentity"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

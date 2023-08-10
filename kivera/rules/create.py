@@ -24,7 +24,8 @@ class createMethods:
             "enforce": enforce,
             "log_request_body": log_request_body,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateRule"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _CreateRuleV4Query = """
     mutation CreateRuleV4($config: jsonb = "", $description: String!, $service_id: Int!, $enable_cfn_scan: Boolean = false, $enforce: Boolean = true, $log_request_body: Boolean = true, $dependencies_enabled: Boolean = false, $tags: jsonb! = [], $rule_dependencies: [RuleDependencies_insert_input!] = [], $policy: String!) {
@@ -67,7 +68,8 @@ class createMethods:
             "rule_dependencies": rule_dependencies,
             "policy": policy,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateRuleV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _CreateRulesV4Query = """
     mutation CreateRulesV4($objects: [Rules_insert_input!]!) {
@@ -92,4 +94,5 @@ class createMethods:
         variables = {
             "objects": objects,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateRulesV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

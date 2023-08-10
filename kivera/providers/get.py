@@ -17,7 +17,8 @@ class getMethods:
         variables = {
             "provider": provider,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProvider"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProvidersQuery = """
     query GetProviders {
@@ -35,4 +36,5 @@ class getMethods:
         query = gql(self._GetProvidersQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProviders"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

@@ -34,7 +34,8 @@ class listMethods:
         variables = {
             "org_id": org_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListOrgMemberships"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _ListUserMembershipsQuery = """
     query ListUserMemberships($user_id: String!) {
@@ -59,4 +60,5 @@ class listMethods:
         variables = {
             "user_id": user_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListUserMemberships"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

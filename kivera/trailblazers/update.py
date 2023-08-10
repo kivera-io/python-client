@@ -41,7 +41,8 @@ class updateMethods:
             "tags": tags,
             "debug": debug,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateTrailBlazer"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateTrailblazerStatusQuery = """
     mutation UpdateTrailblazerStatus($trailblazer_id: Int!, $status: String) {
@@ -60,4 +61,5 @@ class updateMethods:
             "trailblazer_id": trailblazer_id,
             "status": status,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateTrailblazerStatus"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

@@ -25,7 +25,8 @@ class updateMethods:
             "enforce": enforce,
             "log_request_body": log_request_body,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateRule"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateRuleV4Query = """
     mutation UpdateRuleV4($id: Int!, $config: jsonb!, $dependencies_enabled: Boolean!, $description: String!, $enforce: Boolean!, $enable_cfn_scan: Boolean!, $log_request_body: Boolean!, $policy: String!,$tags: jsonb! = []) {
@@ -57,4 +58,5 @@ class updateMethods:
             "policy": policy,
             "tags": tags,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateRuleV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

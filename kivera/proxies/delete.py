@@ -22,7 +22,8 @@ class deleteMethods:
         variables = {
             "ids": ids,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteProxies"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteProxyQuery = """
     mutation DeleteProxy($id: Int!) {
@@ -40,7 +41,8 @@ class deleteMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteProxy"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteProxyV2Query = """
     mutation DeleteProxyV2($id: Int!) {
@@ -61,4 +63,5 @@ class deleteMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteProxyV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

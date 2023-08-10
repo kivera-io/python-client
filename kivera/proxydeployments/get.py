@@ -26,7 +26,8 @@ class getMethods:
         query = gql(self._GetLatestProxyDeploymentConfigQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetLatestProxyDeploymentConfig"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyDeploymentConfigQuery = """
     query GetProxyDeploymentConfig($id: Int!) {
@@ -41,7 +42,8 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyDeploymentConfig"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyDeploymentConfigV1Query = """
     query GetProxyDeploymentConfigV1($proxy_id: Int!) {
@@ -275,7 +277,8 @@ fragment ProxyDeploymentProfileFields on Profiles {
         variables = {
             "proxy_id": proxy_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyDeploymentConfigV1"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyDeploymentConfigV1_4Query = """
     query GetProxyDeploymentConfigV1_4($proxy_id: Int!) {
@@ -509,4 +512,5 @@ fragment ProxyDeploymentProfileFieldsV1_4 on Profiles {
         variables = {
             "proxy_id": proxy_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyDeploymentConfigV1_4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

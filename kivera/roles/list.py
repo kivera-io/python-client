@@ -16,4 +16,5 @@ class listMethods:
         query = gql(self._ListRolesQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListRoles"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

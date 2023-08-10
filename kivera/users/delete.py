@@ -29,4 +29,5 @@ class deleteMethods:
             "org_id": org_id,
             "user_id": user_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteUserFromOrganization"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

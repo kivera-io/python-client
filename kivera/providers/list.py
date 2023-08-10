@@ -16,4 +16,5 @@ class listMethods:
         query = gql(self._ListProvidersQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListProviders"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

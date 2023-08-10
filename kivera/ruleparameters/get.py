@@ -19,7 +19,8 @@ class getMethods:
         variables = {
             "rule_parameter_id": rule_parameter_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRuleParameter"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetRuleParameterV2Query = """
     query GetRuleParameterV2($rule_parameter_id: Int!) {
@@ -38,7 +39,8 @@ class getMethods:
         variables = {
             "rule_parameter_id": rule_parameter_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRuleParameterV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetRuleParametersV4Query = """
     query GetRuleParametersV4($rule_id: Int!) {
@@ -61,4 +63,5 @@ class getMethods:
         variables = {
             "rule_id": rule_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRuleParametersV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

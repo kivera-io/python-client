@@ -37,7 +37,8 @@ class updateMethods:
             "default_identity_id": default_identity_id,
             "provider_id": provider_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxy"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyAllownoncloudtrafficQuery = """
     mutation UpdateProxyAllownoncloudtraffic($proxy_id: Int!, $allow_noncloud_traffic: Boolean!) {
@@ -57,7 +58,8 @@ class updateMethods:
             "proxy_id": proxy_id,
             "allow_noncloud_traffic": allow_noncloud_traffic,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyAllownoncloudtraffic"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyCloudProviderQuery = """
     mutation UpdateProxyCloudProvider($enabled: Boolean!, $proxy_id: Int!, $provider_id: Int!) {
@@ -79,7 +81,8 @@ class updateMethods:
             "proxy_id": proxy_id,
             "provider_id": provider_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyCloudProvider"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyDescriptionQuery = """
     mutation UpdateProxyDescription($description: String!, $id: Int!) {
@@ -97,7 +100,8 @@ class updateMethods:
             "description": description,
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyDescription"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyHealthCheckTimeQuery = """
     mutation UpdateProxyHealthCheckTime($proxy_id: Int!) {
@@ -114,7 +118,8 @@ class updateMethods:
         variables = {
             "proxy_id": proxy_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyHealthCheckTime"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyLearningModeQuery = """
     mutation UpdateProxyLearningMode($proxy_id: Int!, $default_mode: proxysettings_default_mode_type!) {
@@ -134,7 +139,8 @@ class updateMethods:
             "proxy_id": proxy_id,
             "default_mode": default_mode,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyLearningMode"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyLogLevelQuery = """
     mutation UpdateProxyLogLevel($proxy_id: Int!, $logLevel: Boolean!) {
@@ -154,7 +160,8 @@ class updateMethods:
             "proxy_id": proxy_id,
             "logLevel": logLevel,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyLogLevel"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyNameQuery = """
     mutation UpdateProxyName($name: String!, $id: Int!) {
@@ -171,7 +178,8 @@ class updateMethods:
             "name": name,
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyName"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyStatusQuery = """
     mutation UpdateProxyStatus($proxy_id: Int!, $status: String) {
@@ -190,7 +198,8 @@ class updateMethods:
             "proxy_id": proxy_id,
             "status": status,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyStatus"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateProxyV2Query = """
     mutation UpdateProxyV2(
@@ -247,4 +256,5 @@ class updateMethods:
         query = gql(self._UpdateProxyV2Query)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
