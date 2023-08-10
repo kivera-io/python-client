@@ -21,7 +21,8 @@ class getMethods:
         variables = {
             "proxy_id": proxy_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxy"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyConfigQuery = """
     query GetProxyConfig {
@@ -223,7 +224,8 @@ fragment ProfileFields on Profiles {
         query = gql(self._GetProxyConfigQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyConfig"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyConfigV4Query = """
     query GetProxyConfigV4 {
@@ -425,7 +427,8 @@ fragment ProfileFieldsV4 on Profiles {
         query = gql(self._GetProxyConfigV4Query)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyConfigV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyDetailsQuery = """
     query GetProxyDetails($proxy_id: Int!) {
@@ -511,7 +514,8 @@ fragment ProfileFieldsV4 on Profiles {
         variables = {
             "proxy_id": proxy_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyDetails"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyIDQuery = """
     query GetProxyID($proxy_name: String!) {
@@ -531,7 +535,8 @@ fragment ProfileFieldsV4 on Profiles {
         variables = {
             "proxy_name": proxy_name,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyID"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProxyV2Query = """
     query GetProxyV2($proxy_id: Int!) {
@@ -565,4 +570,5 @@ fragment ProfileFieldsV4 on Profiles {
         variables = {
             "proxy_id": proxy_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProxyV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

@@ -32,4 +32,5 @@ class listMethods:
         query = gql(self._ListProfilesQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListProfiles"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

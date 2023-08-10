@@ -85,7 +85,8 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetIdentity"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetIdentityConfigQuery = """
     query GetIdentityConfig {
@@ -196,7 +197,8 @@ fragment ProfileFields on Profiles {
         query = gql(self._GetIdentityConfigQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetIdentityConfig"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetIdentityConfigV4Query = """
     query GetIdentityConfigV4 {
@@ -307,4 +309,5 @@ fragment ProfileFieldsV4 on Profiles {
         query = gql(self._GetIdentityConfigV4Query)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetIdentityConfigV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

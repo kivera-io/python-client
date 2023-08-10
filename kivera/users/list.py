@@ -29,7 +29,8 @@ class listMethods:
         query = gql(self._ListUsersQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListUsers"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _ListVerifiedUsersQuery = """
     query ListVerifiedUsers {
@@ -46,4 +47,5 @@ class listMethods:
         query = gql(self._ListVerifiedUsersQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListVerifiedUsers"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

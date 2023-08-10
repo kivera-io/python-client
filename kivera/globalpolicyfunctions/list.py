@@ -17,4 +17,5 @@ class listMethods:
         query = gql(self._ListGlobalPolicyFunctionsQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListGlobalPolicyFunctions"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

@@ -23,4 +23,5 @@ class getMethods:
         variables = {
             "trailblazer_id": trailblazer_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetTrailBlazerApiKey"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

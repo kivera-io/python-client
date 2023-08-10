@@ -36,4 +36,5 @@ class getMethods:
         variables = {
             "rule_id": rule_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRuleDependenciesByRuleId"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

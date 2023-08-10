@@ -23,4 +23,5 @@ class deleteMethods:
         variables = {
             "membership_id": membership_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteMembership"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

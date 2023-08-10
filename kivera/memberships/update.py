@@ -26,4 +26,5 @@ class updateMethods:
             "membership_id": membership_id,
             "role_id": role_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateMembershipRole"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

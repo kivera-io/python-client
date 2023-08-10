@@ -21,4 +21,5 @@ class deleteMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteIdentityProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

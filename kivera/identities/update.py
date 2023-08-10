@@ -43,4 +43,5 @@ class updateMethods:
             "identity_type": identity_type,
             "profiles": profiles,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateIdentity"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

@@ -31,4 +31,5 @@ class createMethods:
         query = gql(self._CreateTrailBlazerQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateTrailBlazer"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

@@ -19,7 +19,8 @@ class getMethods:
         variables = {
             "profile_id": profile_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProfile"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProfileAndIdentityProfilesQuery = """
     query GetProfileAndIdentityProfiles($profile_id: Int!) {
@@ -61,7 +62,8 @@ class getMethods:
         variables = {
             "profile_id": profile_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProfileAndIdentityProfiles"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProfileAndRulesQuery = """
     query GetProfileAndRules($profile_id: Int!) {
@@ -84,7 +86,8 @@ class getMethods:
         variables = {
             "profile_id": profile_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProfileAndRules"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetProfileV2Query = """
     query GetProfileV2($id: Int!) {
@@ -109,4 +112,5 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetProfileV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

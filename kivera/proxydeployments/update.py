@@ -31,4 +31,5 @@ class updateMethods:
             "id": id,
             "status": status,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateProxyDeployment"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

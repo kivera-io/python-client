@@ -23,7 +23,8 @@ class listMethods:
         query = gql(self._ListGlobalServicesQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListGlobalServices"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _ListGlobalServicesForProviderQuery = """
     query ListGlobalServicesForProvider($provider: String!) {
@@ -41,4 +42,5 @@ class listMethods:
         variables = {
             "provider": provider,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListGlobalServicesForProvider"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

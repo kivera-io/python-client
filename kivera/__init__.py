@@ -1,4 +1,4 @@
-__version__ = "v1.3.0"
+__version__ = "v1.4.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -6,6 +6,7 @@ from gql.transport.aiohttp import AIOHTTPTransport
 from gql.transport.exceptions import TransportQueryError
 from jose import jwt, exceptions
 from datetime import datetime, timedelta
+from typing import Optional
 from kivera.config import ConfigMethods
 from kivera.counters import CountersMethods
 from kivera.globalpolicyfunctions import GlobalPolicyFunctionsMethods
@@ -110,7 +111,7 @@ class Client(
 
         GqlClient.__init__(self, transport=self._get_transport(), execute_timeout=timeout)
 
-    def execute(self, query, variable_values):
+    def execute(self, query, variable_values: Optional[dict]=None, operation_name: Optional[str]=None):
 
         if self._token:
             try:
@@ -129,7 +130,7 @@ class Client(
                 raise ClientError(str(e))
 
         try:
-            resp = GqlClient.execute(self, query, variable_values=variable_values)
+            resp = GqlClient.execute(self, query, variable_values=variable_values, operation_name=operation_name)
 
         except TransportQueryError as e:
             if str(e).find("not found in type"):

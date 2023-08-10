@@ -18,4 +18,5 @@ class getMethods:
         variables = {
             "serviceID": serviceID,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRulePoliciesConfigActionsV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

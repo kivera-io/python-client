@@ -23,4 +23,5 @@ class listMethods:
         query = gql(self._ListTrailBlazerIdentitiesQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListTrailBlazerIdentities"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

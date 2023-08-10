@@ -19,4 +19,5 @@ class createMethods:
             "user_id": user_id,
             "org_id": org_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateMembership"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

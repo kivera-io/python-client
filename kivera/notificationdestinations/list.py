@@ -24,4 +24,5 @@ class listMethods:
         query = gql(self._ListNotificationDestinationsQuery)
         variables = {
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "ListNotificationDestinations"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

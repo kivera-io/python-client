@@ -20,7 +20,8 @@ class getMethods:
         variables = {
             "rule_id": rule_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRule"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetRuleV4Query = """
     query GetRuleV4($id: Int!) {
@@ -49,7 +50,8 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRuleV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetRulesAndPoliciesV4Query = """
     query GetRulesAndPoliciesV4($rule_id: Int!) {
@@ -85,7 +87,8 @@ class getMethods:
         variables = {
             "rule_id": rule_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetRulesAndPoliciesV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetServiceRuleIDsQuery = """
     query GetServiceRuleIDs($serviceID: Int!) {
@@ -100,7 +103,8 @@ class getMethods:
         variables = {
             "serviceID": serviceID,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetServiceRuleIDs"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetServiceRulesQuery = """
     query GetServiceRules($serviceID: Int!) {
@@ -134,4 +138,5 @@ class getMethods:
         variables = {
             "serviceID": serviceID,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetServiceRules"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

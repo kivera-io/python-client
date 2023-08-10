@@ -29,4 +29,5 @@ class updateMethods:
             "id": id,
             "inspection": inspection,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateService"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

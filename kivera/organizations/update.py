@@ -29,7 +29,8 @@ class updateMethods:
             "org_id": org_id,
             "changes": changes,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateOrganization"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateOrganizationAllowedDomainsQuery = """
     mutation UpdateOrganizationAllowedDomains($org_id: Int!, $allowed_domains: _varchar!) {
@@ -45,4 +46,5 @@ class updateMethods:
             "org_id": org_id,
             "allowed_domains": allowed_domains,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "UpdateOrganizationAllowedDomains"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

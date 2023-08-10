@@ -22,4 +22,5 @@ class createMethods:
             "trailblazer_id": trailblazer_id,
             "identity_id": identity_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "CreateTrailBlazerIdentity"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

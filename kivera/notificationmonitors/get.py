@@ -26,7 +26,8 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetNotificationMonitor"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetNotificationMonitorV2Query = """
     query GetNotificationMonitorV2($id: String!) {
@@ -51,4 +52,5 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetNotificationMonitorV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

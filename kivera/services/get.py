@@ -28,7 +28,8 @@ class getMethods:
         variables = {
             "service_name": service_name,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetService"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetServiceV2Query = """
     query GetServiceV2($id: Int!) {
@@ -55,4 +56,5 @@ class getMethods:
         variables = {
             "id": id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "GetServiceV2"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)

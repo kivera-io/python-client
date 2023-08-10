@@ -16,7 +16,8 @@ class deleteMethods:
         variables = {
             "rule_id": rule_id,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteRule"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _DeleteRulesQuery = """
     mutation DeleteRules($ids: [Int!]!) {
@@ -34,4 +35,5 @@ class deleteMethods:
         variables = {
             "ids": ids,
         }
-        return self.execute(query, variable_values=variables)
+        operation_name = "DeleteRules"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
