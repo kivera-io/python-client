@@ -293,6 +293,7 @@ fragment ProfileFields on Profiles {
   ProxySettings {
     debug
     default_mode
+    learning_mode
     proxy_mode
     allow_noncloud_traffic
     default_identity_id
@@ -446,6 +447,7 @@ fragment ProfileFieldsV4 on Profiles {
       default_identity_id
       proxy_id
       proxy_mode
+      learning_mode
       default_mode
       allow_noncloud_traffic
       Identity {
