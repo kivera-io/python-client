@@ -67,6 +67,11 @@ class getMethods:
     dependencies_enabled
     tags
     policy
+    ImportedFrom {
+      id
+      version
+    }
+    version
     Service {
       id
       GlobalService {
@@ -88,6 +93,27 @@ class getMethods:
             "rule_id": rule_id,
         }
         operation_name = "GetRulesAndPoliciesV4"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
+
+    _GetRulesByImportedFromIDsQuery = """
+    query GetRulesByImportedFromIDs($imported_from: [Int!]!) {
+  Rules(where: {ImportedFrom: {id: {_in: $imported_from}}}) {
+    id
+    description
+    imported_from
+    service_id
+    type_id
+    version
+  }
+}
+    """
+
+    def GetRulesByImportedFromIDs(self, imported_from: Sequence[int]):
+        query = gql(self._GetRulesByImportedFromIDsQuery)
+        variables = {
+            "imported_from": imported_from,
+        }
+        operation_name = "GetRulesByImportedFromIDs"
         return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _GetServiceRuleIDsQuery = """

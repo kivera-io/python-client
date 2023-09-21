@@ -1,4 +1,4 @@
-__version__ = "v1.4.0"
+__version__ = "v1.5.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -14,6 +14,7 @@ from kivera.globalservices import GlobalServicesMethods
 from kivera.identities import IdentitiesMethods
 from kivera.identityprofiles import IdentityProfilesMethods
 from kivera.identitytypes import IdentityTypesMethods
+from kivera.managedrules import ManagedRulesMethods
 from kivera.memberships import MembershipsMethods
 from kivera.metrics import MetricsMethods
 from kivera.notificationdestinations import NotificationDestinationsMethods
@@ -55,6 +56,7 @@ class Client(
 	IdentitiesMethods,
 	IdentityProfilesMethods,
 	IdentityTypesMethods,
+	ManagedRulesMethods,
 	MembershipsMethods,
 	MetricsMethods,
 	NotificationDestinationsMethods,
