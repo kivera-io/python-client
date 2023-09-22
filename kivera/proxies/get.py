@@ -97,6 +97,11 @@ class getMethods:
       tags
       name
       id
+      description
+      IdentityType {
+        id
+        identity_type
+      }
     }
   }
   Counters {
@@ -293,6 +298,7 @@ fragment ProfileFields on Profiles {
   ProxySettings {
     debug
     default_mode
+    learning_mode
     proxy_mode
     allow_noncloud_traffic
     default_identity_id
@@ -300,6 +306,11 @@ fragment ProfileFields on Profiles {
       tags
       name
       id
+      description
+      IdentityType {
+        id
+        identity_type
+      }
     }
   }
   Counters {
@@ -446,11 +457,17 @@ fragment ProfileFieldsV4 on Profiles {
       default_identity_id
       proxy_id
       proxy_mode
+      learning_mode
       default_mode
       allow_noncloud_traffic
       Identity {
         id
         name
+        description
+        IdentityType {
+          id
+          identity_type
+        }
       }
     }
     ProxyIdentities(where: { deleted: { _eq: false } }) {
