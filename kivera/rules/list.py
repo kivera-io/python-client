@@ -17,6 +17,11 @@ class listMethods:
     config
     dependencies_enabled
     tags
+    version
+    ImportedFrom{
+      id
+      version
+    }
     Service {
       id
       GlobalService {

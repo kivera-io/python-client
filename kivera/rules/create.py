@@ -71,6 +71,31 @@ class createMethods:
         operation_name = "CreateRuleV4"
         return self.execute(query, variable_values=variables, operation_name=operation_name)
 
+    _CreateRulesQuery = """
+    mutation CreateRules($objects: [Rules_insert_input!]!) {
+  insert_Rules(objects: $objects) {
+    returning {
+      config
+      description
+      id
+      service_id
+      enforce
+      enable_cfn_scan
+      log_request_body
+      tags
+    }
+  }
+}
+    """
+
+    def CreateRules(self, objects: Sequence[dict]):
+        query = gql(self._CreateRulesQuery)
+        variables = {
+            "objects": objects,
+        }
+        operation_name = "CreateRules"
+        return self.execute(query, variable_values=variables, operation_name=operation_name)
+
     _CreateRulesV4Query = """
     mutation CreateRulesV4($objects: [Rules_insert_input!]!) {
   insert_Rules(objects: $objects) {
