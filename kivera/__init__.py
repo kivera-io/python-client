@@ -1,4 +1,4 @@
-__version__ = "v1.4.0"
+__version__ = "v1.5.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -7,6 +7,7 @@ from gql.transport.exceptions import TransportQueryError
 from jose import jwt, exceptions
 from datetime import datetime, timedelta
 from typing import Optional
+from kivera.cloudtenants import CloudTenantsMethods
 from kivera.config import ConfigMethods
 from kivera.counters import CountersMethods
 from kivera.globalpolicyfunctions import GlobalPolicyFunctionsMethods
@@ -14,6 +15,7 @@ from kivera.globalservices import GlobalServicesMethods
 from kivera.identities import IdentitiesMethods
 from kivera.identityprofiles import IdentityProfilesMethods
 from kivera.identitytypes import IdentityTypesMethods
+from kivera.managedrules import ManagedRulesMethods
 from kivera.memberships import MembershipsMethods
 from kivera.metrics import MetricsMethods
 from kivera.notificationdestinations import NotificationDestinationsMethods
@@ -48,13 +50,15 @@ class ClientError(Exception):
 
 class Client(
     GqlClient,
-    ConfigMethods,
+    CloudTenantsMethods,
+	ConfigMethods,
 	CountersMethods,
 	GlobalPolicyFunctionsMethods,
 	GlobalServicesMethods,
 	IdentitiesMethods,
 	IdentityProfilesMethods,
 	IdentityTypesMethods,
+	ManagedRulesMethods,
 	MembershipsMethods,
 	MetricsMethods,
 	NotificationDestinationsMethods,
