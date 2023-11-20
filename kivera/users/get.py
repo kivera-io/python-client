@@ -19,6 +19,7 @@ class getMethods:
       Organization {
         company_name
         id
+        beta_access
         Plan {
           id
           name
@@ -54,6 +55,7 @@ class getMethods:
       Organization {
         company_name
         id
+        beta_access
         Plan {
           id
           name
