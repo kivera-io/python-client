@@ -29,8 +29,12 @@ class updateMethods:
         return self.execute(query, variable_values=variables, operation_name=operation_name)
 
     _UpdateRuleV4Query = """
-    mutation UpdateRuleV4($id: Int!, $config: jsonb!, $dependencies_enabled: Boolean!, $description: String!, $enforce: Boolean!, $enable_cfn_scan: Boolean!, $log_request_body: Boolean!, $policy: String!,$tags: jsonb! = []) {
-  update_Rules(where: {id: {_eq: $id}}, _set: {config: $config, dependencies_enabled: $dependencies_enabled, description: $description, enforce: $enforce, enable_cfn_scan: $enable_cfn_scan, log_request_body: $log_request_body,  policy: $policy, tags: $tags}) {
+    mutation UpdateRuleV4($id: Int!, $config: jsonb!, $dependencies_enabled: Boolean!, $description: String!, $enforce: Boolean!,
+  $enable_cfn_scan: Boolean!, $log_request_body: Boolean!, $policy: String!, $tags: jsonb! = [],
+  $risk_rating: risk_rating_type, $compliance_mappings: jsonb! = []) {
+  update_Rules(where: {id: {_eq: $id}}, _set: {config: $config, dependencies_enabled: $dependencies_enabled,
+    description: $description, enforce: $enforce, enable_cfn_scan: $enable_cfn_scan, log_request_body: $log_request_body,  policy: $policy,
+    tags: $tags, risk_rating: $risk_rating, compliance_mappings: $compliance_mappings}) {
     returning {
       dependencies_enabled
       description
@@ -40,23 +44,16 @@ class updateMethods:
       id
       log_request_body
       tags
+      risk_rating
+      compliance_mappings
     }
   }
 }
     """
 
-    def UpdateRuleV4(self, id: int, config: dict, dependencies_enabled: bool, description: str, enforce: bool, enable_cfn_scan: bool, log_request_body: bool, policy: str, tags: dict = None):
+    def UpdateRuleV4(self):
         query = gql(self._UpdateRuleV4Query)
         variables = {
-            "id": id,
-            "config": config,
-            "dependencies_enabled": dependencies_enabled,
-            "description": description,
-            "enforce": enforce,
-            "enable_cfn_scan": enable_cfn_scan,
-            "log_request_body": log_request_body,
-            "policy": policy,
-            "tags": tags,
         }
         operation_name = "UpdateRuleV4"
         return self.execute(query, variable_values=variables, operation_name=operation_name)
