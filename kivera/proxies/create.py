@@ -4,8 +4,8 @@ from typing import Sequence
 class createMethods:
 
     _CreateProxyQuery = """
-    mutation CreateProxy($description: String!, $name: String!, $organization_id: Int!, $debug: Boolean!, $proxy_mode: String!, $default_identity_id: Int, $provider_data: [ProxyProviders_insert_input!]!, $allow_noncloud_traffic: Boolean!, $default_mode: proxysettings_default_mode_type!) {
-  insert_Proxies_one(object: {description: $description, name: $name, organization_id: $organization_id, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode}}, ProxyProviders: {data: $provider_data}}) {
+    mutation CreateProxy($description: String!, $name: String!, $organization_id: Int!, $debug: Boolean!, $proxy_mode: String!, $default_identity_id: Int, $provider_data: [ProxyProviders_insert_input!]!, $allow_noncloud_traffic: Boolean!, $default_mode: proxysettings_default_mode_type!, $learning_mode: Boolean!,) {
+  insert_Proxies_one(object: {description: $description, name: $name, organization_id: $organization_id, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode}}, ProxyProviders: {data: $provider_data}}) {
     name
     organization_id
     status
@@ -16,6 +16,7 @@ class createMethods:
       debug
       proxy_mode
       default_mode
+      learning_mode
       allow_noncloud_traffic
     }
     ProxyProviders {
@@ -26,7 +27,7 @@ class createMethods:
 }
     """
 
-    def CreateProxy(self, description: str, name: str, organization_id: int, debug: bool, proxy_mode: str, provider_data: Sequence[dict], allow_noncloud_traffic: bool, default_mode: dict, default_identity_id: int = None):
+    def CreateProxy(self, description: str, name: str, organization_id: int, debug: bool, proxy_mode: str, provider_data: Sequence[dict], allow_noncloud_traffic: bool, default_mode: dict, learning_mode: bool, default_identity_id: int = None):
         query = gql(self._CreateProxyQuery)
         variables = {
             "description": description,
@@ -38,6 +39,7 @@ class createMethods:
             "provider_data": provider_data,
             "allow_noncloud_traffic": allow_noncloud_traffic,
             "default_mode": default_mode,
+            "learning_mode": learning_mode,
         }
         operation_name = "CreateProxy"
         return self.execute(query, variable_values=variables, operation_name=operation_name)
@@ -50,6 +52,7 @@ class createMethods:
   $debug: Boolean = false,
   $proxy_mode: String = "HYBRID",
   $default_mode: proxysettings_default_mode_type!,
+  $learning_mode: Boolean!,
   # @genqlient(pointer: true)
   $default_identity_id: Int = null,
   $allow_noncloud_traffic: Boolean = false,
@@ -57,7 +60,7 @@ class createMethods:
   $providers: [ProxyProviders_insert_input!] = [],
   $identities: [ProxyIdentities_insert_input!] = [],
 ) {
-  insert_Proxies(objects: {description: $description, name: $name, organization_id: $organization_id, tags: $tags, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode}}, ProxyProviders: {data: $providers}, ProxyIdentities: {data: $identities}}) {
+  insert_Proxies(objects: {description: $description, name: $name, organization_id: $organization_id, tags: $tags, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode}}, ProxyProviders: {data: $providers}, ProxyIdentities: {data: $identities}}) {
     returning {
       id
       description
@@ -70,6 +73,7 @@ class createMethods:
         debug
         proxy_mode
         default_mode
+        learning_mode
         default_identity_id
         allow_noncloud_traffic
       }
