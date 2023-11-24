@@ -307,11 +307,7 @@ fragment ProxyDeploymentProfileFields on Profiles {
     config
     status
     tags
-    IdentityType {
-      identity_type
-      id
-      config
-    }
+    identity_type
     IdentityProfiles(where: { deleted: { _eq: false } }) {
       Profile {
         ...ProxyDeploymentProfileFieldsV1_4
@@ -329,6 +325,7 @@ fragment ProxyDeploymentProfileFields on Profiles {
       id
     }
     ProxyProviders(where: { enabled: { _eq: true } }) {
+      provider_id
       provider_autoupdate
       ProviderVersion {
         version_name
@@ -356,6 +353,7 @@ fragment ProxyDeploymentProfileFields on Profiles {
   ProxySettings(where: { proxy_id: { _eq: $proxy_id } }) {
     debug
     default_mode
+    learning_mode
     proxy_mode
     allow_noncloud_traffic
     default_identity_id
@@ -363,6 +361,11 @@ fragment ProxyDeploymentProfileFields on Profiles {
       tags
       name
       id
+      description
+      IdentityType {
+        id
+        identity_type
+      }
     }
   }
   Counters(where: { proxy_id: { _eq: $proxy_id } }) {
@@ -390,6 +393,13 @@ fragment ProxyDeploymentProfileFields on Profiles {
       id
       name
       function
+    }
+    CloudTenants {
+      id
+      Provider {
+        name
+      }
+      tenant_structure
     }
   }
   Profiles(
