@@ -97,6 +97,11 @@ class getMethods:
       tags
       name
       id
+      description
+      IdentityType {
+        id
+        identity_type
+      }
     }
   }
   Counters {
@@ -244,11 +249,7 @@ fragment ProfileFields on Profiles {
     config
     status
     tags
-    IdentityType {
-      identity_type
-      id
-      config
-    }
+    identity_type
     IdentityProfiles(where: { deleted: { _eq: false } }) {
       Profile {
         ...ProfileFieldsV4
@@ -266,6 +267,7 @@ fragment ProfileFields on Profiles {
       id
     }
     ProxyProviders(where: { enabled: { _eq: true } }) {
+      provider_id
       provider_autoupdate
       ProviderVersion {
         version_name
@@ -293,6 +295,7 @@ fragment ProfileFields on Profiles {
   ProxySettings {
     debug
     default_mode
+    learning_mode
     proxy_mode
     allow_noncloud_traffic
     default_identity_id
@@ -300,6 +303,11 @@ fragment ProfileFields on Profiles {
       tags
       name
       id
+      description
+      IdentityType {
+        id
+        identity_type
+      }
     }
   }
   Counters {
@@ -327,6 +335,13 @@ fragment ProfileFields on Profiles {
       id
       name
       function
+    }
+    CloudTenants {
+      id
+      Provider {
+        name
+      }
+      tenant_structure
     }
   }
   Profiles {
@@ -446,11 +461,17 @@ fragment ProfileFieldsV4 on Profiles {
       default_identity_id
       proxy_id
       proxy_mode
+      learning_mode
       default_mode
       allow_noncloud_traffic
       Identity {
         id
         name
+        description
+        IdentityType {
+          id
+          identity_type
+        }
       }
     }
     ProxyIdentities(where: { deleted: { _eq: false } }) {
