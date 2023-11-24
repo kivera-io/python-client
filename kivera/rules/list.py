@@ -17,6 +17,13 @@ class listMethods:
     config
     dependencies_enabled
     tags
+    risk_rating
+    compliance_mappings
+    version
+    ImportedFrom{
+      id
+      version
+    }
     Service {
       id
       GlobalService {
