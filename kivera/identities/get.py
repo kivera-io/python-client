@@ -246,6 +246,7 @@ fragment ProfileFieldsV4 on Profiles {
       log_request_body
       dependencies_enabled
       tags
+      risk_rating
       policy
       ruleDependenciesByRuleId(where: { deleted: { _eq: false } }) {
         id

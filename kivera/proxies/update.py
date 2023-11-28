@@ -209,6 +209,7 @@ class updateMethods:
   $debug: Boolean = false,
   $proxy_mode: String = "HYBRID",
   $default_mode: proxysettings_default_mode_type!,
+  $learning_mode: Boolean!,
   # @genqlient(pointer: true)
   $default_identity_id: Int = null,
   $allow_noncloud_traffic: Boolean = false,
@@ -227,12 +228,13 @@ class updateMethods:
     }
   }
   update_ProxySettings(where: {proxy_id: {_eq: $id}}, _set: {debug: $debug, proxy_mode: $proxy_mode, default_identity_id: $default_identity_id,
-    allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode}) {
+    allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode}) {
     returning {
       id
       debug
       proxy_mode
       default_mode
+      learning_mode
       default_identity_id
     }
   }

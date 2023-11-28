@@ -14,6 +14,9 @@ class deleteMethods:
   update_IdentityProfiles(where: {identity_id: {_in: $ids}}, _set: {deleted: true}) {
     affected_rows
   }
+  update_ProxyIdentities(where: {identity_id: {_in: $ids}}, _set: {deleted: true}) {
+    affected_rows
+  }
 }
     """
 
@@ -40,6 +43,9 @@ class deleteMethods:
     }
   }
   update_IdentityProfiles(where: {identity_id: {_eq: $id}}, _set: {deleted: true}) {
+    affected_rows
+  }
+  update_ProxyIdentities(where: {identity_id: {_eq: $id}}, _set: {deleted: true}) {
     affected_rows
   }
 }
