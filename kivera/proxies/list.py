@@ -20,6 +20,7 @@ class listMethods:
       debug
       proxy_mode
       default_mode
+      learning_mode
       allow_noncloud_traffic
       default_identity_id
     }
