@@ -3,4 +3,6 @@ vendors/
 schema.json
 .vscode/
 build/
-kivera.egg-info/
+*.egg-info/
+.pypirc
+dist/
