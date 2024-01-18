@@ -1,4 +1,4 @@
-name: Version and Release
+name: PyPi Release
 
 on:
   push:
@@ -10,10 +10,8 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PYPI_API_KEY: ${{ secrets.PYPI_API_KEY }}
       PYPI_TEST_API_KEY: ${{ secrets.PYPI_TEST_API_KEY }}
-      GITUSER: ${{ github.actor }}
     steps:
       - uses: actions/checkout@v3
         with:
@@ -23,23 +21,11 @@ jobs:
           python-version: '3.11'
       - name: Setup
         run: |
-          git config --global user.name "$GITUSER"
-          git config --global user.email "${GITUSER}@users.noreply.github.com"
-          npm install -g standard-version
           pip install twine
           envsubst < .pypirc.template > .pypirc
-      - name: Version
-        run: |
-          standard-version --release-as minor --skip.changelog --skip.commit
-          git push --follow-tags origin $(git describe --tag)
       - name: Build Dist
         run: |
           python setup.py sdist
-      - name: GH release
-        run: |
-          tag=$(git describe --tag)
-          msg=$(git log -1 --pretty=format:%B)
-          gh release create ${tag} --title "Release ${tag}" --notes "${msg}"
       - name: PyPi test release
         run: |
           twine upload --config-file .pypirc -r testpypi dist/*
