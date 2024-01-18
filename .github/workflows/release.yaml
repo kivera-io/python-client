@@ -28,7 +28,7 @@ jobs:
           python setup.py sdist
       - name: PyPi test release
         run: |
-          twine upload --config-file .pypirc -r testpypi dist/*
+          twine upload --config-file .pypirc -r testpypi dist/kivera-sdk-*.tar.gz
       - name: PyPi official release
         run: |
-          twine upload --config-file .pypirc dist/*
+          twine upload --config-file .pypirc dist/kivera-sdk-*.tar.gz
