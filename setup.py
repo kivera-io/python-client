@@ -4,10 +4,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="kivera",
-    author="Tyler Matheson",
-    author_email="tyler@kivera.io",
-    description="Graphql Client library to interact with the Kivera API",
+    name="kivera-sdk",
+    author="Kivera",
+    author_email="support@kivera.io",
+    description="Python library to interact with the Kivera Graphql API",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/kivera-io/python-client",
@@ -15,7 +15,7 @@ setuptools.setup(
         "Programming Language :: Python :: 3",
         "Operating System :: Unix",
     ],
-    keywords='graphql gql client',
+    keywords='kivera graphql gql sdk client',
     packages=setuptools.find_packages(exclude=["tests", "gen"]),
     python_requires=">=3.6",
     install_requires=[
