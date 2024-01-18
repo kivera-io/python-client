@@ -13,8 +13,11 @@ setuptools.setup(
     url="https://github.com/kivera-io/python-client",
     license="MIT License",
     classifiers=[
+        "License :: OSI Approved :: MIT License",
+        "Natural Language :: English",
+        "Intended Audience :: Information Technology",
+        "Intended Audience :: Developers",
         "Programming Language :: Python :: 3",
-        "Operating System :: Unix",
     ],
     keywords='kivera graphql gql sdk client',
     packages=setuptools.find_packages(exclude=["tests", "gen"]),
