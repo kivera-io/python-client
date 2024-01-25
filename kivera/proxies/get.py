@@ -470,6 +470,7 @@ fragment ProfileFieldsV4 on Profiles {
         id
         name
         description
+        identity_type
         IdentityType {
           id
           identity_type
