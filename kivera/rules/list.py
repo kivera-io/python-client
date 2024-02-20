@@ -20,6 +20,20 @@ class listMethods:
     risk_rating
     compliance_mappings
     version
+    created_at
+    created_by
+    updated_at
+    updated_by
+    UpdatedByUser {
+      family_name
+      given_name
+      id
+    }
+    CreatedByUser {
+      family_name
+      id
+      given_name
+    }
     ImportedFrom{
       id
       version
