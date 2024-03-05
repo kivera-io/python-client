@@ -20,7 +20,13 @@ class getMethods:
             "rule_parameter_id": rule_parameter_id,
         }
         operation_name = "GetRuleParameter"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetRuleParameterV2Query = """
     query GetRuleParameterV2($rule_parameter_id: Int!) {
@@ -40,7 +46,13 @@ class getMethods:
             "rule_parameter_id": rule_parameter_id,
         }
         operation_name = "GetRuleParameterV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetRuleParametersV4Query = """
     query GetRuleParametersV4($rule_id: Int!) {
@@ -64,4 +76,10 @@ class getMethods:
             "rule_id": rule_id,
         }
         operation_name = "GetRuleParametersV4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

@@ -20,7 +20,13 @@ class getMethods:
             "profile_id": profile_id,
         }
         operation_name = "GetProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProfileAndIdentityProfilesQuery = """
     query GetProfileAndIdentityProfiles($profile_id: Int!) {
@@ -63,7 +69,13 @@ class getMethods:
             "profile_id": profile_id,
         }
         operation_name = "GetProfileAndIdentityProfiles"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProfileAndRulesQuery = """
     query GetProfileAndRules($profile_id: Int!) {
@@ -87,7 +99,13 @@ class getMethods:
             "profile_id": profile_id,
         }
         operation_name = "GetProfileAndRules"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProfileV2Query = """
     query GetProfileV2($id: Int!) {
@@ -113,4 +131,10 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetProfileV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

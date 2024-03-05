@@ -27,4 +27,10 @@ class createMethods:
             "tenant_structure": tenant_structure,
         }
         operation_name = "CreateCloudTenant"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

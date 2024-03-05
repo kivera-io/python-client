@@ -26,7 +26,13 @@ class updateMethods:
             "log_request_body": log_request_body,
         }
         operation_name = "UpdateRule"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateRuleV4Query = """
     mutation UpdateRuleV4($id: Int!, $config: jsonb!, $dependencies_enabled: Boolean!, $description: String!, $enforce: Boolean!,
@@ -59,4 +65,10 @@ class updateMethods:
         variables = {
         }
         operation_name = "UpdateRuleV4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

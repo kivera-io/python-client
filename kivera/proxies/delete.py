@@ -23,7 +23,13 @@ class deleteMethods:
             "ids": ids,
         }
         operation_name = "DeleteProxies"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _DeleteProxyQuery = """
     mutation DeleteProxy($id: Int!) {
@@ -42,7 +48,13 @@ class deleteMethods:
             "id": id,
         }
         operation_name = "DeleteProxy"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _DeleteProxyV2Query = """
     mutation DeleteProxyV2($id: Int!) {
@@ -64,4 +76,10 @@ class deleteMethods:
             "id": id,
         }
         operation_name = "DeleteProxyV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

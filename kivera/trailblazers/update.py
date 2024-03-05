@@ -42,7 +42,13 @@ class updateMethods:
             "debug": debug,
         }
         operation_name = "UpdateTrailBlazer"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateTrailblazerStatusQuery = """
     mutation UpdateTrailblazerStatus($trailblazer_id: Int!, $status: String) {
@@ -62,4 +68,10 @@ class updateMethods:
             "status": status,
         }
         operation_name = "UpdateTrailblazerStatus"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

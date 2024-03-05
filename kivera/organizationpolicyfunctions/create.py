@@ -21,7 +21,13 @@ class createMethods:
             "name": name,
         }
         operation_name = "CreateAndUpdateOrganizationPolicyFunction"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateOrganizationPolicyFunctionV2Query = """
     mutation CreateOrganizationPolicyFunctionV2($organization_id: Int!, $function: String!) {
@@ -40,4 +46,10 @@ class createMethods:
             "function": function,
         }
         operation_name = "CreateOrganizationPolicyFunctionV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

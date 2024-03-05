@@ -17,4 +17,10 @@ class getMethods:
             "org_id": org_id,
         }
         operation_name = "GetOrganizationAllowedDomains"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

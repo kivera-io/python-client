@@ -38,7 +38,13 @@ class updateMethods:
             "provider_id": provider_id,
         }
         operation_name = "UpdateProxy"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyAllownoncloudtrafficQuery = """
     mutation UpdateProxyAllownoncloudtraffic($proxy_id: Int!, $allow_noncloud_traffic: Boolean!) {
@@ -59,7 +65,13 @@ class updateMethods:
             "allow_noncloud_traffic": allow_noncloud_traffic,
         }
         operation_name = "UpdateProxyAllownoncloudtraffic"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyCloudProviderQuery = """
     mutation UpdateProxyCloudProvider($enabled: Boolean!, $proxy_id: Int!, $provider_id: Int!) {
@@ -82,7 +94,13 @@ class updateMethods:
             "provider_id": provider_id,
         }
         operation_name = "UpdateProxyCloudProvider"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyDescriptionQuery = """
     mutation UpdateProxyDescription($description: String!, $id: Int!) {
@@ -101,7 +119,13 @@ class updateMethods:
             "id": id,
         }
         operation_name = "UpdateProxyDescription"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyHealthCheckTimeQuery = """
     mutation UpdateProxyHealthCheckTime($proxy_id: Int!) {
@@ -119,7 +143,13 @@ class updateMethods:
             "proxy_id": proxy_id,
         }
         operation_name = "UpdateProxyHealthCheckTime"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyLearningModeQuery = """
     mutation UpdateProxyLearningMode($proxy_id: Int!, $default_mode: proxysettings_default_mode_type!) {
@@ -140,7 +170,13 @@ class updateMethods:
             "default_mode": default_mode,
         }
         operation_name = "UpdateProxyLearningMode"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyLogLevelQuery = """
     mutation UpdateProxyLogLevel($proxy_id: Int!, $logLevel: Boolean!) {
@@ -161,7 +197,13 @@ class updateMethods:
             "logLevel": logLevel,
         }
         operation_name = "UpdateProxyLogLevel"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyNameQuery = """
     mutation UpdateProxyName($name: String!, $id: Int!) {
@@ -179,7 +221,13 @@ class updateMethods:
             "id": id,
         }
         operation_name = "UpdateProxyName"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyStatusQuery = """
     mutation UpdateProxyStatus($proxy_id: Int!, $status: String) {
@@ -199,7 +247,13 @@ class updateMethods:
             "status": status,
         }
         operation_name = "UpdateProxyStatus"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateProxyV2Query = """
     mutation UpdateProxyV2(
@@ -259,4 +313,10 @@ class updateMethods:
         variables = {
         }
         operation_name = "UpdateProxyV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

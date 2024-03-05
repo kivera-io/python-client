@@ -30,4 +30,10 @@ class updateMethods:
             "inspection": inspection,
         }
         operation_name = "UpdateService"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

@@ -32,7 +32,13 @@ class deleteMethods:
             "profile_id": profile_id,
         }
         operation_name = "DeleteProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _DeleteProfilesQuery = """
     mutation DeleteProfiles($ids: [Int!]!) {
@@ -54,7 +60,13 @@ class deleteMethods:
             "ids": ids,
         }
         operation_name = "DeleteProfiles"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _DeleteRuleFromProfileQuery = """
     mutation DeleteRuleFromProfile($profile_id: Int!, $rule_id: Int!) {
@@ -76,7 +88,13 @@ class deleteMethods:
             "rule_id": rule_id,
         }
         operation_name = "DeleteRuleFromProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _DeleteRulesFromProfileQuery = """
     mutation DeleteRulesFromProfile($profile_id: Int!) {
@@ -97,4 +115,10 @@ class deleteMethods:
             "profile_id": profile_id,
         }
         operation_name = "DeleteRulesFromProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

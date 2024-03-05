@@ -24,4 +24,10 @@ class deleteMethods:
             "membership_id": membership_id,
         }
         operation_name = "DeleteMembership"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

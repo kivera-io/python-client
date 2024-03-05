@@ -30,7 +30,13 @@ class listMethods:
         variables = {
         }
         operation_name = "ListUsers"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _ListVerifiedUsersQuery = """
     query ListVerifiedUsers {
@@ -48,4 +54,10 @@ class listMethods:
         variables = {
         }
         operation_name = "ListVerifiedUsers"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

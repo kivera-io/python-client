@@ -19,4 +19,10 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetIdentityType"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

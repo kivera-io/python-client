@@ -22,7 +22,13 @@ class createMethods:
             "organization_id": organization_id,
         }
         operation_name = "CreateProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateProfileV2Query = """
     mutation CreateProfileV2($description: String!, $name: String!, $organization_id: Int!, $tags: jsonb! = [], $rules: [ProfileRules_insert_input!] = []) {
@@ -54,4 +60,10 @@ class createMethods:
             "rules": rules,
         }
         operation_name = "CreateProfileV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

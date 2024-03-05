@@ -18,7 +18,13 @@ class listMethods:
         variables = {
         }
         operation_name = "ListAllComplianceMappings"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _ListComplianceMappingsForCurrentOrgQuery = """
     query ListComplianceMappingsForCurrentOrg {
@@ -34,7 +40,13 @@ class listMethods:
         variables = {
         }
         operation_name = "ListComplianceMappingsForCurrentOrg"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _ListComplianceMappingsForManagedRulesQuery = """
     query ListComplianceMappingsForManagedRules {
@@ -50,4 +62,10 @@ class listMethods:
         variables = {
         }
         operation_name = "ListComplianceMappingsForManagedRules"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

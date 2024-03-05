@@ -24,4 +24,10 @@ class getMethods:
             "proxy_id": proxy_id,
         }
         operation_name = "GetProxyApiKey"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

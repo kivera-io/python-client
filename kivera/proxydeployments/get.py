@@ -27,7 +27,13 @@ class getMethods:
         variables = {
         }
         operation_name = "GetLatestProxyDeploymentConfig"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyDeploymentConfigQuery = """
     query GetProxyDeploymentConfig($id: Int!) {
@@ -43,7 +49,13 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetProxyDeploymentConfig"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyDeploymentConfigV1Query = """
     query GetProxyDeploymentConfigV1($proxy_id: Int!) {
@@ -278,7 +290,13 @@ fragment ProxyDeploymentProfileFields on Profiles {
             "proxy_id": proxy_id,
         }
         operation_name = "GetProxyDeploymentConfigV1"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyDeploymentConfigV1_4Query = """
     query GetProxyDeploymentConfigV1_4($proxy_id: Int!) {
@@ -523,4 +541,10 @@ fragment ProxyDeploymentProfileFieldsV1_4 on Profiles {
             "proxy_id": proxy_id,
         }
         operation_name = "GetProxyDeploymentConfigV1_4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

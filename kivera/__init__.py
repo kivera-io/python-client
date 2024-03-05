@@ -1,4 +1,4 @@
-__version__ = "v1.6.0"
+__version__ = "v1.7.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -117,7 +117,7 @@ class Client(
 
         GqlClient.__init__(self, transport=self._get_transport(), execute_timeout=timeout)
 
-    def execute(self, query, variable_values: Optional[dict]=None, operation_name: Optional[str]=None):
+    def execute(self, query, variable_values: Optional[dict]=None, operation_name: Optional[str]=None, operation_type: Optional[str]=None):
 
         if self._token:
             try:
@@ -136,7 +136,8 @@ class Client(
                 raise ClientError(str(e))
 
         try:
-            resp = GqlClient.execute(self, query, variable_values=variable_values, operation_name=operation_name)
+            extra_args = { "headers": { "X-Kivera-Operation-Type": operation_type } }
+            resp = GqlClient.execute(self, query, variable_values=variable_values, operation_name=operation_name, extra_args=extra_args)
 
         except TransportQueryError as e:
             if str(e).find("not found in type"):

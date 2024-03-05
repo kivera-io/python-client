@@ -22,7 +22,13 @@ class getMethods:
             "proxy_id": proxy_id,
         }
         operation_name = "GetProxy"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyConfigQuery = """
     query GetProxyConfig {
@@ -230,7 +236,13 @@ fragment ProfileFields on Profiles {
         variables = {
         }
         operation_name = "GetProxyConfig"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyConfigV4Query = """
     query GetProxyConfigV4 {
@@ -445,7 +457,13 @@ fragment ProfileFieldsV4 on Profiles {
         variables = {
         }
         operation_name = "GetProxyConfigV4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyDetailsQuery = """
     query GetProxyDetails($proxy_id: Int!) {
@@ -540,7 +558,13 @@ fragment ProfileFieldsV4 on Profiles {
             "proxy_id": proxy_id,
         }
         operation_name = "GetProxyDetails"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyIDQuery = """
     query GetProxyID($proxy_name: String!) {
@@ -561,7 +585,13 @@ fragment ProfileFieldsV4 on Profiles {
             "proxy_name": proxy_name,
         }
         operation_name = "GetProxyID"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProxyV2Query = """
     query GetProxyV2($proxy_id: Int!) {
@@ -596,4 +626,10 @@ fragment ProfileFieldsV4 on Profiles {
             "proxy_id": proxy_id,
         }
         operation_name = "GetProxyV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

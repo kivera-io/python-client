@@ -25,7 +25,13 @@ class attachMethods:
             "rule_id": rule_id,
         }
         operation_name = "AttachRuleToProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _AttachRulesToProfileQuery = """
     mutation AttachRulesToProfile($objects: [ProfileRules_insert_input!]!, $profile_id: Int!) {
@@ -53,4 +59,10 @@ class attachMethods:
             "profile_id": profile_id,
         }
         operation_name = "AttachRulesToProfile"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

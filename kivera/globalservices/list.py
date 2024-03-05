@@ -24,7 +24,13 @@ class listMethods:
         variables = {
         }
         operation_name = "ListGlobalServices"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _ListGlobalServicesForProviderQuery = """
     query ListGlobalServicesForProvider($provider: String!) {
@@ -43,4 +49,10 @@ class listMethods:
             "provider": provider,
         }
         operation_name = "ListGlobalServicesForProvider"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

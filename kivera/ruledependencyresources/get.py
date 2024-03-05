@@ -24,7 +24,13 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetRuleDependencyResources"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetRuleDependencyResourcesByRuleIDQuery = """
     query GetRuleDependencyResourcesByRuleID($identity_id: Int!, $rule_ids: [Int!]!) {
@@ -49,4 +55,10 @@ class getMethods:
             "rule_ids": rule_ids,
         }
         operation_name = "GetRuleDependencyResourcesByRuleID"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

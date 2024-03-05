@@ -35,7 +35,13 @@ class listMethods:
             "org_id": org_id,
         }
         operation_name = "ListOrgMemberships"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _ListUserMembershipsQuery = """
     query ListUserMemberships($user_id: String!) {
@@ -61,4 +67,10 @@ class listMethods:
             "user_id": user_id,
         }
         operation_name = "ListUserMemberships"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

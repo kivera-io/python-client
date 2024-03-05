@@ -42,7 +42,13 @@ class createMethods:
             "learning_mode": learning_mode,
         }
         operation_name = "CreateProxy"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateProxyV2Query = """
     mutation CreateProxyV2(
@@ -98,4 +104,10 @@ class createMethods:
         variables = {
         }
         operation_name = "CreateProxyV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

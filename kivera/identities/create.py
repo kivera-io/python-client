@@ -50,7 +50,13 @@ class createMethods:
             "profiles": profiles,
         }
         operation_name = "CreateAwsTenantIdentity"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateIdentityQuery = """
     mutation CreateIdentity($name: String!, $description: String!, $config: jsonb!, $organization_id: Int!, $tags: jsonb!, $type_id: Int!, $identity_type: identity_type!, $profiles: [IdentityProfiles_insert_input!] = []) {
@@ -91,4 +97,10 @@ class createMethods:
             "profiles": profiles,
         }
         operation_name = "CreateIdentity"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

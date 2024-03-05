@@ -86,7 +86,13 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetIdentity"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetIdentityConfigQuery = """
     query GetIdentityConfig {
@@ -198,7 +204,13 @@ fragment ProfileFields on Profiles {
         variables = {
         }
         operation_name = "GetIdentityConfig"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetIdentityConfigV4Query = """
     query GetIdentityConfigV4 {
@@ -311,4 +323,10 @@ fragment ProfileFieldsV4 on Profiles {
         variables = {
         }
         operation_name = "GetIdentityConfigV4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

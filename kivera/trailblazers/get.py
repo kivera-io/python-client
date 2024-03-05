@@ -40,4 +40,10 @@ class getMethods:
             "trailblazer_id": trailblazer_id,
         }
         operation_name = "GetTrailBlazerAndIdentities"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

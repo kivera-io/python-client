@@ -18,7 +18,13 @@ class getMethods:
             "provider": provider,
         }
         operation_name = "GetProvider"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetProvidersQuery = """
     query GetProviders {
@@ -37,4 +43,10 @@ class getMethods:
         variables = {
         }
         operation_name = "GetProviders"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

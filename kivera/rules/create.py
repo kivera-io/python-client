@@ -25,7 +25,13 @@ class createMethods:
             "log_request_body": log_request_body,
         }
         operation_name = "CreateRule"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateRuleV4Query = """
     mutation CreateRuleV4($config: jsonb = "", $description: String!, $service_id: Int!, $enable_cfn_scan: Boolean = false, $enforce: Boolean = true, $log_request_body: Boolean = true, $dependencies_enabled: Boolean = false, $tags: jsonb! = [], $rule_dependencies: [RuleDependencies_insert_input!] = [], $policy: String!, $type_id: Int = 1) {
@@ -73,7 +79,13 @@ class createMethods:
             "type_id": type_id,
         }
         operation_name = "CreateRuleV4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateRulesQuery = """
     mutation CreateRules($objects: [Rules_insert_input!]!) {
@@ -98,7 +110,13 @@ class createMethods:
             "objects": objects,
         }
         operation_name = "CreateRules"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _CreateRulesV4Query = """
     mutation CreateRulesV4($objects: [Rules_insert_input!]!) {
@@ -126,4 +144,10 @@ class createMethods:
             "objects": objects,
         }
         operation_name = "CreateRulesV4"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

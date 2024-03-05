@@ -19,4 +19,10 @@ class getMethods:
             "gpfn": gpfn,
         }
         operation_name = "GetGlobalPolicyFunction"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

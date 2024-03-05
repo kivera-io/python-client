@@ -24,7 +24,13 @@ class updateMethods:
             "client_id": client_id,
         }
         operation_name = "DisableUserApiKey"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _DisableUserApiKeysForOrgQuery = """
     mutation DisableUserApiKeysForOrg($user_id: String!, $org_id: Int!) {
@@ -48,7 +54,13 @@ class updateMethods:
             "org_id": org_id,
         }
         operation_name = "DisableUserApiKeysForOrg"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _UpdateUserApiKeysQuery = """
     mutation UpdateUserApiKeys($user_id: String!, $org_id: Int!, $status: Boolean!) {
@@ -73,4 +85,10 @@ class updateMethods:
             "status": status,
         }
         operation_name = "UpdateUserApiKeys"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

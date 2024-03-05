@@ -18,7 +18,13 @@ class getMethods:
         variables = {
         }
         operation_name = "GetOrganizationPolicyFunction"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetOrganizationPolicyFunctionV2Query = """
     query GetOrganizationPolicyFunctionV2($id: Int!,) {
@@ -36,4 +42,10 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetOrganizationPolicyFunctionV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

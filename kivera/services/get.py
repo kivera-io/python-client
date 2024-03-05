@@ -29,7 +29,13 @@ class getMethods:
             "service_name": service_name,
         }
         operation_name = "GetService"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
 
     _GetServiceV2Query = """
     query GetServiceV2($id: Int!) {
@@ -57,4 +63,10 @@ class getMethods:
             "id": id,
         }
         operation_name = "GetServiceV2"
-        return self.execute(query, variable_values=variables, operation_name=operation_name)
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
