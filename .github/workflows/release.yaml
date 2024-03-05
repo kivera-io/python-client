@@ -9,6 +9,9 @@ jobs:
   build:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: write
     env:
       PYPI_API_KEY: ${{ secrets.PYPI_API_KEY }}
       PYPI_TEST_API_KEY: ${{ secrets.PYPI_TEST_API_KEY }}
