@@ -1,4 +1,4 @@
-name: PyPi Release
+name: Release
 
 on:
   push:
@@ -8,16 +8,15 @@ on:
       - kivera/**
 
 jobs:
-  build:
+  release:
     name: Release
     runs-on: ubuntu-latest
     permissions:
-      id-token: write
       contents: write
     env:
       PYPI_API_KEY: ${{ secrets.PYPI_API_KEY }}
       PYPI_TEST_API_KEY: ${{ secrets.PYPI_TEST_API_KEY }}
-      GITHUB_TOKEN: ${{ secrets.KIVERA_BOT_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       GITUSER: kivera-bot
     steps:
       - uses: actions/checkout@v3
