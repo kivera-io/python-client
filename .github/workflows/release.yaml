@@ -12,6 +12,8 @@ jobs:
     env:
       PYPI_API_KEY: ${{ secrets.PYPI_API_KEY }}
       PYPI_TEST_API_KEY: ${{ secrets.PYPI_TEST_API_KEY }}
+      GITHUB_TOKEN: ${{ secrets.KIVERA_BOT_TOKEN }}
+      GITUSER: kivera-bot
     steps:
       - uses: actions/checkout@v3
         with:
@@ -19,16 +21,25 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
+      - uses: actions/setup-node@v3.7.0
+        with:
+          node-version: 16
       - name: Setup
         run: |
+          git config --global user.name "$GITUSER"
+          git config --global user.email "${GITUSER}@users.noreply.github.com"
+          npm install -g standard-version
           pip install twine
           envsubst < .pypirc.template > .pypirc
       - name: Build Dist
         run: |
-          python setup.py sdist
+          make dist
+      - name: Git release
+        run: |
+          make ci-release
       - name: PyPi test release
         run: |
-          twine upload --config-file .pypirc -r testpypi dist/kivera-sdk-*.tar.gz
+          make pypi-test
       - name: PyPi official release
         run: |
-          twine upload --config-file .pypirc dist/kivera-sdk-*.tar.gz
+          make pypi
