@@ -30,6 +30,10 @@ class listMethods:
                 }
             }
         }
+        enforce
+        log_request_body
+        created_at
+        updated_at
     }
 }
     """
