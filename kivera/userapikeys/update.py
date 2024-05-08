@@ -62,6 +62,37 @@ class updateMethods:
             operation_type=operation_type,
         )
 
+    _UpdateUserApiKeyDescriptionQuery = """
+    mutation UpdateUserApiKeyDescription($id: Int!, $description: String!) {
+    update_UserApiKeys(where: {id: {_eq: $id}}, _set: {description: $description}) {
+        returning {
+            client_id
+            created
+            id
+            org_id
+            status
+            user_id
+            description
+        }
+    }
+}
+    """
+
+    def UpdateUserApiKeyDescription(self, id: int, description: str):
+        query = gql(self._UpdateUserApiKeyDescriptionQuery)
+        variables = {
+            "id": id,
+            "description": description,
+        }
+        operation_name = "UpdateUserApiKeyDescription"
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
+
     _UpdateUserApiKeysQuery = """
     mutation UpdateUserApiKeys($user_id: String!, $org_id: Int!, $status: Boolean!) {
     update_UserApiKeys(where: {user_id: {_eq: $user_id}, org_id: {_eq: $org_id}}, _set: {status: $status}) {

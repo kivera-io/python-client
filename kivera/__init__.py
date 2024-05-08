@@ -1,4 +1,4 @@
-__version__ = "v1.8.0"
+__version__ = "v1.9.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -19,8 +19,6 @@ from kivera.identitytypes import IdentityTypesMethods
 from kivera.managedrules import ManagedRulesMethods
 from kivera.memberships import MembershipsMethods
 from kivera.metrics import MetricsMethods
-from kivera.notificationdestinations import NotificationDestinationsMethods
-from kivera.notificationmonitors import NotificationMonitorsMethods
 from kivera.organizationpolicyfunctions import OrganizationPolicyFunctionsMethods
 from kivera.organizations import OrganizationsMethods
 from kivera.plans import PlansMethods
@@ -37,9 +35,6 @@ from kivera.ruledependencyresources import RuleDependencyResourcesMethods
 from kivera.ruleparameters import RuleParametersMethods
 from kivera.rules import RulesMethods
 from kivera.services import ServicesMethods
-from kivera.trailblazeridentities import TrailBlazerIdentitiesMethods
-from kivera.trailblazers import TrailBlazersMethods
-from kivera.trailblazerapikeys import TrailblazerApiKeysMethods
 from kivera.userapikeys import UserApiKeysMethods
 from kivera.users import UsersMethods
 
@@ -63,8 +58,6 @@ class Client(
 	ManagedRulesMethods,
 	MembershipsMethods,
 	MetricsMethods,
-	NotificationDestinationsMethods,
-	NotificationMonitorsMethods,
 	OrganizationPolicyFunctionsMethods,
 	OrganizationsMethods,
 	PlansMethods,
@@ -81,9 +74,6 @@ class Client(
 	RuleParametersMethods,
 	RulesMethods,
 	ServicesMethods,
-	TrailBlazerIdentitiesMethods,
-	TrailBlazersMethods,
-	TrailblazerApiKeysMethods,
 	UserApiKeysMethods,
 	UsersMethods
 ):

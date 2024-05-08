@@ -12,6 +12,7 @@ class listMethods:
         status
         user_id
         created
+        description
         Organization {
             domain
             company_name
