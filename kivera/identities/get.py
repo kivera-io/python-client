@@ -127,7 +127,6 @@ fragment ProfileFields on Profiles {
   tags
   ProfileRules(
     where: { deleted: { _eq: false } }
-    order_by: { Rule: { dependencies_enabled: desc } }
   ) {
     Rule {
       id
@@ -139,49 +138,7 @@ fragment ProfileFields on Profiles {
       enable_cfn_scan
       enforce
       log_request_body
-      dependencies_enabled
       tags
-      ruleDependenciesByRuleId(where: { deleted: { _eq: false } }) {
-        id
-        dependent_rule_id
-        rule_id
-        Rule {
-          id
-          description
-          config
-          policy
-          service_id
-          type_id
-          enable_cfn_scan
-          enforce
-          log_request_body
-          dependencies_enabled
-          tags
-          Service {
-            GlobalService {
-              name
-              Provider {
-                name
-              }
-            }
-          }
-          RuleParameters(where: { deleted: { _eq: false } }) {
-            parameter_name
-            parameter_value
-          }
-        }
-        RuleDependenciesResources {
-          id
-          identity_id
-          locked
-          resource_id
-          rule_dependencies_id
-          RuleDependency {
-            rule_id
-            dependent_rule_id
-          }
-        }
-      }
       Service {
         GlobalService {
           name
@@ -189,10 +146,6 @@ fragment ProfileFields on Profiles {
             name
           }
         }
-      }
-      RuleParameters(where: { deleted: { _eq: false } }) {
-        parameter_name
-        parameter_value
       }
     }
   }
@@ -245,7 +198,6 @@ fragment ProfileFieldsV4 on Profiles {
   tags
   ProfileRules(
     where: { deleted: { _eq: false } }
-    order_by: { Rule: { dependencies_enabled: desc } }
   ) {
     Rule {
       id
@@ -256,52 +208,10 @@ fragment ProfileFieldsV4 on Profiles {
       enable_cfn_scan
       enforce
       log_request_body
-      dependencies_enabled
       tags
       compliance_mappings
       risk_rating
       policy
-      ruleDependenciesByRuleId(where: { deleted: { _eq: false } }) {
-        id
-        dependent_rule_id
-        rule_id
-        Rule {
-          id
-          description
-          config
-          service_id
-          type_id
-          enable_cfn_scan
-          enforce
-          log_request_body
-          dependencies_enabled
-          tags
-          policy
-          Service {
-            GlobalService {
-              name
-              Provider {
-                name
-              }
-            }
-          }
-          RuleParameters(where: { deleted: { _eq: false } }) {
-            parameter_name
-            parameter_value
-          }
-        }
-        RuleDependenciesResources {
-          id
-          identity_id
-          locked
-          resource_id
-          rule_dependencies_id
-          RuleDependency {
-            rule_id
-            dependent_rule_id
-          }
-        }
-      }
       Service {
         GlobalService {
           name
@@ -309,10 +219,6 @@ fragment ProfileFieldsV4 on Profiles {
             name
           }
         }
-      }
-      RuleParameters(where: { deleted: { _eq: false } }) {
-        parameter_name
-        parameter_value
       }
     }
   }
