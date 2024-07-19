@@ -34,8 +34,38 @@ class createMethods:
         )
 
     _CreateRuleV4Query = """
-    mutation CreateRuleV4($config: jsonb = "", $description: String!, $service_id: Int!, $enable_cfn_scan: Boolean = false, $enforce: Boolean = true, $log_request_body: Boolean = true, $dependencies_enabled: Boolean = false, $tags: jsonb! = [], $rule_dependencies: [RuleDependencies_insert_input!] = [], $policy: String!, $type_id: Int = 1) {
-  insert_Rules(objects: {config: $config, description: $description, service_id: $service_id, enable_cfn_scan: $enable_cfn_scan, enforce: $enforce, log_request_body: $log_request_body, dependencies_enabled: $dependencies_enabled, tags: $tags, RuleDependencies: {data: $rule_dependencies}, policy: $policy, type_id: $type_id}) {
+    mutation CreateRuleV4(
+  $config: jsonb = "",
+  $description: String!,
+  $service_id: Int!,
+  $enable_cfn_scan: Boolean = false,
+  $enforce: Boolean = true,
+  $log_request_body: Boolean = true,
+  $dependencies_enabled: Boolean = false,
+  $tags: jsonb! = [],
+  $rule_dependencies: [RuleDependencies_insert_input!] = [],
+  $policy: String!,
+  # @genqlient(pointer: true)
+  $risk_rating: risk_rating_type = null,
+  $compliance_mappings: jsonb! = [],
+  $type_id: Int = 1
+) {
+  insert_Rules(objects: {
+    config: $config,
+    description: $description,
+    service_id: $service_id,
+    enable_cfn_scan: $enable_cfn_scan,
+    enforce: $enforce,
+    log_request_body: $log_request_body,
+    dependencies_enabled: $dependencies_enabled,
+    tags: $tags, RuleDependencies: {
+      data: $rule_dependencies
+    },
+    policy: $policy,
+    risk_rating: $risk_rating,
+    compliance_mappings: $compliance_mappings,
+    type_id: $type_id
+  }) {
     returning {
       id
       log_request_body
@@ -46,6 +76,8 @@ class createMethods:
       service_id
       tags
       policy
+      risk_rating
+      compliance_mappings
       RuleDependencies {
         dependent_rule_id
         deleted
@@ -63,20 +95,9 @@ class createMethods:
 }
     """
 
-    def CreateRuleV4(self, description: str, service_id: int, policy: str, config: dict = None, enable_cfn_scan: dict = None, enforce: dict = None, log_request_body: dict = None, dependencies_enabled: dict = None, tags: dict = None, rule_dependencies: Sequence[dict] = None, type_id: dict = None):
+    def CreateRuleV4(self):
         query = gql(self._CreateRuleV4Query)
         variables = {
-            "config": config,
-            "description": description,
-            "service_id": service_id,
-            "enable_cfn_scan": enable_cfn_scan,
-            "enforce": enforce,
-            "log_request_body": log_request_body,
-            "dependencies_enabled": dependencies_enabled,
-            "tags": tags,
-            "rule_dependencies": rule_dependencies,
-            "policy": policy,
-            "type_id": type_id,
         }
         operation_name = "CreateRuleV4"
         operation_type = "write"

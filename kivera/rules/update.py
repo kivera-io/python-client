@@ -35,12 +35,37 @@ class updateMethods:
         )
 
     _UpdateRuleV4Query = """
-    mutation UpdateRuleV4($id: Int!, $config: jsonb!, $dependencies_enabled: Boolean!, $description: String!, $enforce: Boolean!,
-  $enable_cfn_scan: Boolean!, $log_request_body: Boolean!, $policy: String!, $tags: jsonb! = [],
-  $risk_rating: risk_rating_type, $compliance_mappings: jsonb! = [], $type_id: Int = 1) {
-  update_Rules(where: {id: {_eq: $id}}, _set: {config: $config, dependencies_enabled: $dependencies_enabled,
-    description: $description, enforce: $enforce, enable_cfn_scan: $enable_cfn_scan, log_request_body: $log_request_body,  policy: $policy,
-    tags: $tags, risk_rating: $risk_rating, compliance_mappings: $compliance_mappings, type_id: $type_id}) {
+    mutation UpdateRuleV4(
+  $id: Int!,
+  $config: jsonb!,
+  $dependencies_enabled: Boolean!,
+  $description: String!,
+  $enforce: Boolean!,
+  $enable_cfn_scan: Boolean!,
+  $log_request_body: Boolean!,
+  $policy: String!,
+  $tags: jsonb! = [],
+  # @genqlient(pointer: true)
+  $risk_rating: risk_rating_type = null,
+  $compliance_mappings: jsonb! = [],
+  $type_id: Int = 1
+) {
+  update_Rules(where: {
+    id: {_eq: $id}
+  },
+  _set: {
+    config: $config,
+    dependencies_enabled: $dependencies_enabled,
+    description: $description,
+    enforce: $enforce,
+    enable_cfn_scan: $enable_cfn_scan,
+    log_request_body: $log_request_body,
+    policy: $policy,
+    tags: $tags,
+    risk_rating: $risk_rating,
+    compliance_mappings: $compliance_mappings,
+    type_id: $type_id
+  }) {
     returning {
       dependencies_enabled
       description
