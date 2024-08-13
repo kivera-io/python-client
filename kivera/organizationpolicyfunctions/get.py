@@ -49,3 +49,28 @@ class getMethods:
             operation_name=operation_name,
             operation_type=operation_type,
         )
+
+    _GetPolicyFunctionsFromServiceQuery = """
+    query GetPolicyFunctionsFromService($service_id: Int!) {
+  GlobalPolicyFunctions(order_by: {id: asc}) {
+    function
+  }
+  OrganizationPolicyFunctions(order_by: {id: asc}, where: {Organization: {Services: {id: {_eq: $service_id}}}}) {
+    function
+  }
+}
+    """
+
+    def GetPolicyFunctionsFromService(self, service_id: int):
+        query = gql(self._GetPolicyFunctionsFromServiceQuery)
+        variables = {
+            "service_id": service_id,
+        }
+        operation_name = "GetPolicyFunctionsFromService"
+        operation_type = "read"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

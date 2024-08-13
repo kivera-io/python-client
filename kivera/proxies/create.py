@@ -65,8 +65,9 @@ class createMethods:
   $tags: jsonb! = [],
   $providers: [ProxyProviders_insert_input!] = [],
   $identities: [ProxyIdentities_insert_input!] = [],
+  $domain_acls: [ProxyDomainAcls_insert_input!] = [],
 ) {
-  insert_Proxies(objects: {description: $description, name: $name, organization_id: $organization_id, tags: $tags, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode}}, ProxyProviders: {data: $providers}, ProxyIdentities: {data: $identities}}) {
+  insert_Proxies(objects: {description: $description, name: $name, organization_id: $organization_id, tags: $tags, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode}}, ProxyProviders: {data: $providers}, ProxyIdentities: {data: $identities}, ProxyDomainAcls: {data: $domain_acls}}) {
     returning {
       id
       description
@@ -93,6 +94,17 @@ class createMethods:
         id
         identity_id
         proxy_id
+      }
+      ProxyDomainAcls {
+        DomainAcl {
+          name
+          id
+          DomainAclEntries {
+            id
+            action
+            domain
+          }
+        }
       }
     }
   }

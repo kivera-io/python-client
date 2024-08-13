@@ -231,6 +231,18 @@ fragment ProfileFields on Profiles {
     ProxyApiKeys {
       id
     }
+    ProxyDomainAcls {
+      DomainAcl {
+        DomainAclEntries {
+          id
+          domain
+          action
+        }
+        id
+        name
+        default_action
+      }
+    }
     ProxyProviders(where: { enabled: { _eq: true } }) {
       provider_id
       provider_autoupdate
@@ -382,6 +394,18 @@ fragment ProfileFieldsV4 on Profiles {
     organization_id
     status
     tags
+    created_at
+    updated_at
+    UpdatedByUser {
+      family_name
+      given_name
+      id
+    }
+    CreatedByUser {
+      family_name
+      id
+      given_name
+    }
     ProxySettings {
       id
       debug
@@ -411,6 +435,17 @@ fragment ProfileFieldsV4 on Profiles {
         IdentityType {
           id
           identity_type
+        }
+      }
+    }
+    ProxyDomainAcls {
+      DomainAcl {
+        name
+        id
+        DomainAclEntries {
+          id
+          action
+          domain
         }
       }
     }

@@ -64,6 +64,9 @@ class deleteMethods:
       id
     }
   }
+  delete_ProxyDomainAcls(where: {proxy_id: {_eq: $id}}){
+    affected_rows
+  }
   update_ProxyIdentities(where: {proxy_id: {_eq: $id}}, _set: {deleted: true}) {
     affected_rows
   }

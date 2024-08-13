@@ -13,6 +13,18 @@ class listMethods:
     organization_id
     status
     tags
+    created_at
+    updated_at
+    UpdatedByUser {
+      family_name
+      given_name
+      id
+    }
+    CreatedByUser {
+      family_name
+      id
+      given_name
+    }
     ProxyIdentities(where: {deleted: {_eq: false}, Identity: {status: {_eq: true}}}) {
       identity_id
     }
@@ -23,6 +35,18 @@ class listMethods:
       learning_mode
       allow_noncloud_traffic
       default_identity_id
+    }
+    ProxyDomainAcls {
+      proxy_id
+      DomainAcl {
+        name
+        id
+        DomainAclEntries {
+          id
+          action
+          domain
+        }
+      }
     }
     ProxyProviders {
       id

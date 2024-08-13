@@ -1,4 +1,4 @@
-__version__ = "v1.11.0"
+__version__ = "v1.12.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -11,6 +11,7 @@ from kivera.cloudtenants import CloudTenantsMethods
 from kivera.compliancemappings import ComplianceMappingsMethods
 from kivera.config import ConfigMethods
 from kivera.counters import CountersMethods
+from kivera.domainacls import DomainACLsMethods
 from kivera.globalpolicyfunctions import GlobalPolicyFunctionsMethods
 from kivera.globalservices import GlobalServicesMethods
 from kivera.identities import IdentitiesMethods
@@ -50,6 +51,7 @@ class Client(
 	ComplianceMappingsMethods,
 	ConfigMethods,
 	CountersMethods,
+	DomainACLsMethods,
 	GlobalPolicyFunctionsMethods,
 	GlobalServicesMethods,
 	IdentitiesMethods,

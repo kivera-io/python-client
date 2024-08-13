@@ -36,6 +36,18 @@ class getMethods:
     name
     organization_id
     tags
+    created_at
+    updated_at
+    UpdatedByUser {
+      family_name
+      given_name
+      id
+    }
+    CreatedByUser {
+      family_name
+      id
+      given_name
+    }
     ProfileRules(where: {deleted: {_eq: false}}) {
       rule_id
     }

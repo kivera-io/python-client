@@ -21,9 +21,7 @@ class listMethods:
     compliance_mappings
     version
     created_at
-    created_by
     updated_at
-    updated_by
     UpdatedByUser {
       family_name
       given_name

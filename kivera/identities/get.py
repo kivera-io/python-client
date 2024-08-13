@@ -15,6 +15,18 @@ class getMethods:
     type_id
     id
     identity_type
+    created_at
+    updated_at
+    UpdatedByUser {
+      family_name
+      given_name
+      id
+    }
+    CreatedByUser {
+      family_name
+      id
+      given_name
+    }
     IdentityProfiles(where: {deleted: {_eq: false}}) {
       identity_id
       profile_id

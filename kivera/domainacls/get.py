@@ -1,15 +1,22 @@
 from gql import gql
 from typing import Sequence
 
-class listMethods:
+class getMethods:
 
-    _ListCloudTenantsQuery = """
-    query ListCloudTenants {
-    CloudTenants {
+    _GetDomainACLQuery = """
+    query GetDomainACL($id: Int!) {
+    DomainAcls_by_pk(id: $id) {
+        DomainAclEntries {
+            action
+            domain
+            domain_acl_id
+            id
+        }
+        created_at
+        default_action
         id
         name
         organization_id
-        created_at
         updated_at
         UpdatedByUser {
             family_name
@@ -21,19 +28,22 @@ class listMethods:
             id
             given_name
         }
-        Provider {
-            id
-            name
+        ProxyDomainAcls {
+            Proxy {
+                id
+                name
+            }
         }
     }
 }
     """
 
-    def ListCloudTenants(self):
-        query = gql(self._ListCloudTenantsQuery)
+    def GetDomainACL(self, id: int):
+        query = gql(self._GetDomainACLQuery)
         variables = {
+            "id": id,
         }
-        operation_name = "ListCloudTenants"
+        operation_name = "GetDomainACL"
         operation_type = "read"
         return self.execute(
             query,

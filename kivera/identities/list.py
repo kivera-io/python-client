@@ -15,6 +15,18 @@ class listMethods:
     type_id
     id
     identity_type
+    created_at
+    updated_at
+    UpdatedByUser {
+      family_name
+      given_name
+      id
+    }
+    CreatedByUser {
+      family_name
+      id
+      given_name
+    }
     Counters_aggregate {
       aggregate {
         sum {

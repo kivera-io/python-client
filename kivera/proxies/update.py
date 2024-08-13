@@ -270,6 +270,7 @@ class updateMethods:
   $tags: jsonb! = [],
   $providers: [ProxyProviders_insert_input!] = [],
   $identities: [ProxyIdentities_insert_input!] = [],
+  $domain_acls: [ProxyDomainAcls_insert_input!] = [],
 ) {
   update_Proxies(where: {id: {_eq: $id}}, _set: {description: $description, name: $name, tags: $tags}) {
     returning {
@@ -303,6 +304,24 @@ class updateMethods:
       id
       deleted
       identity_id
+    }
+  }
+  delete_ProxyDomainAcls(where: {proxy_id: {_eq: $id}}) {
+    affected_rows
+  }
+  insert_ProxyDomainAcls(objects: $domain_acls) {
+    affected_rows
+    returning {
+      id
+      DomainAcl {
+        name
+        id
+        DomainAclEntries {
+          id
+          action
+          domain
+        }
+      }
     }
   }
 }

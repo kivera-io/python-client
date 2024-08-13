@@ -3,37 +3,40 @@ from typing import Sequence
 
 class listMethods:
 
-    _ListCloudTenantsQuery = """
-    query ListCloudTenants {
-    CloudTenants {
+    _ListDomainACLsQuery = """
+    query ListDomainACLs {
+    DomainAcls {
         id
-        name
         organization_id
+        name
+        default_action
         created_at
         updated_at
-        UpdatedByUser {
-            family_name
-            given_name
+        DomainAclEntries {
+            action
+            domain
+            domain_acl_id
             id
+        }
+        UpdatedByUser {
+            id
+            given_name
+            family_name
         }
         CreatedByUser {
-            family_name
             id
             given_name
-        }
-        Provider {
-            id
-            name
+            family_name
         }
     }
 }
     """
 
-    def ListCloudTenants(self):
-        query = gql(self._ListCloudTenantsQuery)
+    def ListDomainACLs(self):
+        query = gql(self._ListDomainACLsQuery)
         variables = {
         }
-        operation_name = "ListCloudTenants"
+        operation_name = "ListDomainACLs"
         operation_type = "read"
         return self.execute(
             query,
