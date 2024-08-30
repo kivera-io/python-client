@@ -468,7 +468,7 @@ fragment ProfileFieldsV4 on Profiles {
       actioned_by_user_id
     }
   }
-  Identities_aggregate {
+  Identities_aggregate(where: {status: {_eq: true}}) {
     aggregate {
       count
     }

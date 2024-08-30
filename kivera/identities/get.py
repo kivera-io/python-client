@@ -109,7 +109,7 @@ class getMethods:
       function
     }
   }
-  Identities {
+  Identities(where: {status: {_eq: true}}) {
     id
     status
     identity_type
@@ -176,7 +176,7 @@ fragment ProfileFields on Profiles {
       function
     }
   }
-  Identities {
+  Identities(where: {status: {_eq: true}}) {
     id
     status
     identity_type

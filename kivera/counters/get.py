@@ -15,7 +15,7 @@ class getMethods:
       }
     }
   }
-  Proxies_aggregate {
+  Proxies_aggregate(where: {status: {_neq: "DELETED"}}) {
     aggregate {
       count
     }
