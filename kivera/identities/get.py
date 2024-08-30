@@ -12,7 +12,6 @@ class getMethods:
     organization_id
     status
     tags
-    type_id
     id
     identity_type
     created_at
@@ -39,11 +38,6 @@ class getMethods:
           }
         }
       }
-    }
-    IdentityType {
-      identity_type
-      id
-      config
     }
     ProxyIdentities(where: {Proxy: {status: {_neq: "DELETED"}, _and: {status: {_neq: "DELETING"}}}}) {
       identity_id
@@ -118,11 +112,7 @@ class getMethods:
   Identities {
     id
     status
-    IdentityType {
-      identity_type
-      id
-      config
-    }
+    identity_type
     IdentityProfiles(where: {deleted: {_eq: false}}) {
       Profile {
         ...ProfileFields
@@ -189,11 +179,7 @@ fragment ProfileFields on Profiles {
   Identities {
     id
     status
-    IdentityType {
-      identity_type
-      id
-      config
-    }
+    identity_type
     IdentityProfiles(where: {deleted: {_eq: false}}) {
       Profile {
         ...ProfileFieldsV4

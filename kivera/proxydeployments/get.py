@@ -84,11 +84,7 @@ class getMethods:
     config
     status
     tags
-    IdentityType {
-      identity_type
-      id
-      config
-    }
+    identity_type
     IdentityProfiles(where: { deleted: { _eq: false } }) {
       Profile {
         ...ProxyDeploymentProfileFields
@@ -333,10 +329,7 @@ fragment ProxyDeploymentProfileFields on Profiles {
       name
       id
       description
-      IdentityType {
-        id
-        identity_type
-      }
+      identity_type
     }
   }
   Counters(where: { proxy_id: { _eq: $proxy_id } }) {

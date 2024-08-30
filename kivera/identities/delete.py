@@ -45,7 +45,6 @@ class deleteMethods:
       organization_id
       status
       tags
-      type_id
     }
   }
   update_IdentityProfiles(where: {identity_id: {_eq: $id}}, _set: {deleted: true}) {

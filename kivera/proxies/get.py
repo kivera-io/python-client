@@ -47,11 +47,7 @@ class getMethods:
     config
     status
     tags
-    IdentityType {
-      identity_type
-      id
-      config
-    }
+    identity_type
     IdentityProfiles(where: { deleted: { _eq: false } }) {
       Profile {
         ...ProfileFields
@@ -104,10 +100,7 @@ class getMethods:
       name
       id
       description
-      IdentityType {
-        id
-        identity_type
-      }
+      identity_type
     }
   }
   Counters {
@@ -281,10 +274,7 @@ fragment ProfileFields on Profiles {
       name
       id
       description
-      IdentityType {
-        id
-        identity_type
-      }
+      identity_type
     }
   }
   Counters {
@@ -420,10 +410,6 @@ fragment ProfileFieldsV4 on Profiles {
         name
         description
         identity_type
-        IdentityType {
-          id
-          identity_type
-        }
       }
     }
     ProxyIdentities(where: { deleted: { _eq: false } }) {
@@ -432,10 +418,6 @@ fragment ProfileFieldsV4 on Profiles {
         name
         description
         identity_type
-        IdentityType {
-          id
-          identity_type
-        }
       }
     }
     ProxyDomainAcls {

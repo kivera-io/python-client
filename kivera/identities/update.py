@@ -18,7 +18,6 @@ class updateMethods:
       name
       organization_id
       status
-      type_id
       tags
       description
       config

@@ -12,7 +12,6 @@ class listMethods:
     organization_id
     status
     tags
-    type_id
     id
     identity_type
     created_at
@@ -36,9 +35,6 @@ class listMethods:
           counter_total_request
         }
       }
-    }
-    IdentityType {
-      identity_type
     }
     IdentityProfiles_aggregate(where: {deleted: {_eq: false}})  {
       aggregate {
