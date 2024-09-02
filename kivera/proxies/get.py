@@ -418,6 +418,10 @@ fragment ProfileFieldsV4 on Profiles {
         name
         description
         identity_type
+        cloud_tenant {
+          id
+          name
+        }
       }
     }
     ProxyDomainAcls {

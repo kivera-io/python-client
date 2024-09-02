@@ -51,6 +51,10 @@ class listMethods:
         }
       }
     }
+    cloud_tenant {
+      id
+      name
+    }
   }
 }
     """
