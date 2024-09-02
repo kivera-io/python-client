@@ -410,6 +410,11 @@ fragment ProfileFieldsV4 on Profiles {
         name
         description
         identity_type
+        cloud_tenant {
+          id
+          name
+        }
+        config
       }
     }
     ProxyIdentities(where: { deleted: { _eq: false } }) {
@@ -418,6 +423,7 @@ fragment ProfileFieldsV4 on Profiles {
         name
         description
         identity_type
+        config
         cloud_tenant {
           id
           name
