@@ -60,3 +60,28 @@ class updateMethods:
             operation_name=operation_name,
             operation_type=operation_type,
         )
+
+    _UpdateOrganizationSettingsQuery = """
+    mutation UpdateOrganizationSettings ($org_id: Int!, $allowed_domains: _varchar!, $enforce_mfa: Boolean!) {
+  update_Organizations_by_pk(pk_columns: {id: $org_id}, _set: {allowed_domains: $allowed_domains, enforce_mfa: $enforce_mfa}) {
+    allowed_domains
+    enforce_mfa
+  }
+}
+    """
+
+    def UpdateOrganizationSettings(self, org_id: int, allowed_domains: dict, enforce_mfa: bool):
+        query = gql(self._UpdateOrganizationSettingsQuery)
+        variables = {
+            "org_id": org_id,
+            "allowed_domains": allowed_domains,
+            "enforce_mfa": enforce_mfa,
+        }
+        operation_name = "UpdateOrganizationSettings"
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )

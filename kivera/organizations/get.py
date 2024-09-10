@@ -7,6 +7,7 @@ class getMethods:
     query GetOrganizationAllowedDomains($org_id: Int!) {
   Organizations(where: {id: {_eq: $org_id}}) {
     allowed_domains
+    enforce_mfa
   }
 }
     """
