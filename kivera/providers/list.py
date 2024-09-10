@@ -8,6 +8,11 @@ class listMethods:
     Providers(order_by: {id: asc}) {
         name
         id
+        GlobalServices_aggregate {
+            aggregate {
+                count
+            }
+        }
     }
 }
     """
