@@ -4,10 +4,11 @@ from typing import Sequence
 class updateMethods:
 
     _UpdateIdentityQuery = """
-    mutation UpdateIdentity($id: Int!, $description: String!, $tags: jsonb!, $config: jsonb!, $identity_type: identity_type!, $profiles: [IdentityProfiles_insert_input!] = []) {
+    mutation UpdateIdentity($id: Int!, $name: String!, $description: String!, $tags: jsonb!, $config: jsonb!, $identity_type: identity_type!, $profiles: [IdentityProfiles_insert_input!] = []) {
   update_Identities(
     where: {id: {_eq: $id}},
     _set: {
+      name: $name,
       description: $description,
       config: $config,
       tags: $tags,
@@ -32,10 +33,11 @@ class updateMethods:
 }
     """
 
-    def UpdateIdentity(self, id: int, description: str, tags: dict, config: dict, identity_type: dict, profiles: Sequence[dict] = None):
+    def UpdateIdentity(self, id: int, name: str, description: str, tags: dict, config: dict, identity_type: dict, profiles: Sequence[dict] = None):
         query = gql(self._UpdateIdentityQuery)
         variables = {
             "id": id,
+            "name": name,
             "description": description,
             "tags": tags,
             "config": config,
