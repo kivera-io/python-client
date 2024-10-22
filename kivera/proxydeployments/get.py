@@ -132,6 +132,8 @@ class getMethods:
     proxy_mode
     allow_noncloud_traffic
     default_identity_id
+    rego_raise_error
+    on_error_action
     Identity {
       tags
       name
@@ -324,6 +326,8 @@ fragment ProxyDeploymentProfileFields on Profiles {
     proxy_mode
     allow_noncloud_traffic
     default_identity_id
+    rego_raise_error
+    on_error_action
     Identity {
       tags
       name

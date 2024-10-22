@@ -66,8 +66,32 @@ class createMethods:
   $providers: [ProxyProviders_insert_input!] = [],
   $identities: [ProxyIdentities_insert_input!] = [],
   $domain_acls: [ProxyDomainAcls_insert_input!] = [],
+  $rego_raise_error: Boolean = false,
+  $on_error_action: rule_evaluation_action!
 ) {
-  insert_Proxies(objects: {description: $description, name: $name, organization_id: $organization_id, tags: $tags, ProxySettings: {data: {proxy_mode: $proxy_mode, debug: $debug, default_identity_id: $default_identity_id, allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode}}, ProxyProviders: {data: $providers}, ProxyIdentities: {data: $identities}, ProxyDomainAcls: {data: $domain_acls}}) {
+  insert_Proxies(
+    objects: {
+      description: $description
+      name: $name
+      organization_id: $organization_id
+      tags: $tags
+      ProxySettings: {
+        data: {
+          proxy_mode: $proxy_mode
+          debug: $debug
+          default_identity_id: $default_identity_id
+          allow_noncloud_traffic: $allow_noncloud_traffic
+          default_mode: $default_mode
+          learning_mode: $learning_mode
+          rego_raise_error: $rego_raise_error
+          on_error_action: $on_error_action
+        }
+      }
+      ProxyProviders: { data: $providers }
+      ProxyIdentities: { data: $identities }
+      ProxyDomainAcls: { data: $domain_acls }
+    }
+  ) {
     returning {
       id
       description
@@ -83,6 +107,8 @@ class createMethods:
         learning_mode
         default_identity_id
         allow_noncloud_traffic
+        rego_raise_error
+        on_error_action
       }
       ProxyProviders {
         id
