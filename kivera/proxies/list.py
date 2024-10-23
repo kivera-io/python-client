@@ -35,6 +35,8 @@ class listMethods:
       learning_mode
       allow_noncloud_traffic
       default_identity_id
+      rego_raise_error
+      on_error_action
     }
     ProxyDomainAcls {
       proxy_id
