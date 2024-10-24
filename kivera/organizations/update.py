@@ -13,10 +13,7 @@ class updateMethods:
       email_domain
       id
       max_total_request_count
-      owner
       plan_id
-      stripe_customer_id
-      stripe_subscription_id
       technical_contact
     }
   }

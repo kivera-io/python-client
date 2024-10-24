@@ -7,10 +7,7 @@ class getMethods:
     query GetOrganization($org_id: Int!) {
   Organizations(where: {id: {_eq: $org_id}}) {
     technical_contact
-    stripe_subscription_id
-    stripe_customer_id
     plan_id
-    owner
     max_total_request_count
     id
     email_domain
