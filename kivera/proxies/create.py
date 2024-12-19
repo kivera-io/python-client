@@ -67,7 +67,8 @@ class createMethods:
   $identities: [ProxyIdentities_insert_input!] = [],
   $domain_acls: [ProxyDomainAcls_insert_input!] = [],
   $rego_raise_error: Boolean = false,
-  $on_error_action: rule_evaluation_action!
+  $on_error_action: rule_evaluation_action!,
+  $config_update_freq_secs: Int! = 10
 ) {
   insert_Proxies(
     objects: {
@@ -84,7 +85,8 @@ class createMethods:
           default_mode: $default_mode
           learning_mode: $learning_mode
           rego_raise_error: $rego_raise_error
-          on_error_action: $on_error_action
+          on_error_action: $on_error_action,
+          config_update_freq_secs: $config_update_freq_secs,
         }
       }
       ProxyProviders: { data: $providers }
@@ -109,6 +111,7 @@ class createMethods:
         allow_noncloud_traffic
         rego_raise_error
         on_error_action
+        config_update_freq_secs
       }
       ProxyProviders {
         id

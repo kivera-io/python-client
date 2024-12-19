@@ -225,6 +225,7 @@ fragment ProfileFields on Profiles {
       allow_noncloud_traffic
       rego_raise_error
       on_error_action
+      config_update_freq_secs
       Identity {
         id
         name
