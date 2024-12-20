@@ -37,6 +37,7 @@ class listMethods:
       default_identity_id
       rego_raise_error
       on_error_action
+      config_update_freq_secs
     }
     ProxyDomainAcls {
       proxy_id
