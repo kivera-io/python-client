@@ -273,7 +273,9 @@ class updateMethods:
   $domain_acls: [ProxyDomainAcls_insert_input!] = [],
   $rego_raise_error: Boolean = false,
   $on_error_action: rule_evaluation_action!,
-  $config_update_freq_secs: Int! = 10
+  $config_update_freq_secs: Int! = 10,
+  $idle_connection_timeout: Int! = 30,
+  $inspect_body_size_limit: Int! = 10000000
 ) {
   update_Proxies(where: {id: {_eq: $id}}, _set: {description: $description, name: $name, tags: $tags}) {
     returning {
@@ -285,9 +287,19 @@ class updateMethods:
       last_healthcheck_time
     }
   }
-  update_ProxySettings(where: {proxy_id: {_eq: $id}}, _set: {debug: $debug, proxy_mode: $proxy_mode, default_identity_id: $default_identity_id,
-    allow_noncloud_traffic: $allow_noncloud_traffic, default_mode: $default_mode, learning_mode: $learning_mode, rego_raise_error: $rego_raise_error,
-    on_error_action:$on_error_action, config_update_freq_secs: $config_update_freq_secs}) {
+  update_ProxySettings(where: {proxy_id: {_eq: $id}}, _set: {
+      debug: $debug,
+      proxy_mode: $proxy_mode,
+      default_identity_id: $default_identity_id,
+      allow_noncloud_traffic: $allow_noncloud_traffic,
+      default_mode: $default_mode,
+      learning_mode: $learning_mode,
+      rego_raise_error: $rego_raise_error,
+      on_error_action:$on_error_action,
+      config_update_freq_secs: $config_update_freq_secs,
+      idle_connection_timeout: $idle_connection_timeout,
+      inspect_body_size_limit: $inspect_body_size_limit
+    }) {
     returning {
       id
       debug
@@ -298,6 +310,8 @@ class updateMethods:
       rego_raise_error
       on_error_action
       config_update_freq_secs
+      idle_connection_timeout
+      inspect_body_size_limit
     }
   }
   insert_ProxyProviders(objects: $providers, on_conflict: {constraint: proxyproviders_uniq_key, update_columns: [provider_id, enabled]}) {

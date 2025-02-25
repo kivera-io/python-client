@@ -38,6 +38,8 @@ class listMethods:
       rego_raise_error
       on_error_action
       config_update_freq_secs
+      idle_connection_timeout
+      inspect_body_size_limit
     }
     ProxyDomainAcls {
       proxy_id
