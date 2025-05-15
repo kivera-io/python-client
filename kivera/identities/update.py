@@ -50,3 +50,29 @@ class updateMethods:
             operation_name=operation_name,
             operation_type=operation_type,
         )
+
+    _UpdateIdentityConfigQuery = """
+    mutation UpdateIdentityConfig($identity_id: Int!, $config: jsonb!) {
+  update_Identities_by_pk(pk_columns: {id: $identity_id}, _set: {
+    config: $config
+  }) {
+    id
+    config
+  }
+}
+    """
+
+    def UpdateIdentityConfig(self, identity_id: int, config: dict):
+        query = gql(self._UpdateIdentityConfigQuery)
+        variables = {
+            "identity_id": identity_id,
+            "config": config,
+        }
+        operation_name = "UpdateIdentityConfig"
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
