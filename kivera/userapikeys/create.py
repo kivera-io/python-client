@@ -3,22 +3,27 @@ from typing import Sequence
 
 class createMethods:
 
-    _CreateProxyApiKeyQuery = """
-    mutation CreateProxyApiKey($object: ProxyApiKeys_insert_input!) {
-  insert_ProxyApiKeys_one(object: $object) {
-    api_key
-    id
-    proxy_id
-  }
+    _CreateUserApiKeyQuery = """
+    mutation CreateUserApiKey($object: UserApiKeys_insert_input!) {
+    insert_UserApiKeys_one(object: $object) {
+        id
+        org_id
+        status
+        user_id
+        client_id
+        org_client_id
+        created
+    	description
+    }
 }
     """
 
-    def CreateProxyApiKey(self, object: dict):
-        query = gql(self._CreateProxyApiKeyQuery)
+    def CreateUserApiKey(self, object: dict):
+        query = gql(self._CreateUserApiKeyQuery)
         variables = {
             "object": object,
         }
-        operation_name = "CreateProxyApiKey"
+        operation_name = "CreateUserApiKey"
         operation_type = "write"
         return self.execute(
             query,
@@ -27,21 +32,21 @@ class createMethods:
             operation_type=operation_type,
         )
 
-    _RotateProxyApiKeyQuery = """
-    mutation RotateProxyApiKey($org_id: Int!, $proxy_id: Int!, $org_client_id: String!, $entity_secret: String!, $expiry: timestamptz!) {
-  update_ProxyApiKeys(
+    _RotateUserApiKeyQuery = """
+    mutation RotateUserApiKey($org_id: Int!, $user_id: String!, $org_client_id: String!, $entity_secret: String!, $expiry: timestamptz!) {
+  update_UserApiKeys(
     where: {
         org_id: {_eq: $org_id},
-        proxy_id: {_eq: $proxy_id},
+        user_id: {_eq: $user_id},
         expiry: {_is_null: true}
     },
     _set: {expiry: $expiry}
   ) {
       affected_rows
   }
-  insert_ProxyApiKeys_one(object: {
+  insert_UserApiKeys_one(object: {
       org_id: $org_id,
-      proxy_id: $proxy_id,
+      user_id: $user_id,
       org_client_id: $org_client_id,
       entity_secret: $entity_secret
   }) {
@@ -50,16 +55,16 @@ class createMethods:
 }
     """
 
-    def RotateProxyApiKey(self, org_id: int, proxy_id: int, org_client_id: str, entity_secret: str, expiry: dict):
-        query = gql(self._RotateProxyApiKeyQuery)
+    def RotateUserApiKey(self, org_id: int, user_id: str, org_client_id: str, entity_secret: str, expiry: dict):
+        query = gql(self._RotateUserApiKeyQuery)
         variables = {
             "org_id": org_id,
-            "proxy_id": proxy_id,
+            "user_id": user_id,
             "org_client_id": org_client_id,
             "entity_secret": entity_secret,
             "expiry": expiry,
         }
-        operation_name = "RotateProxyApiKey"
+        operation_name = "RotateUserApiKey"
         operation_type = "write"
         return self.execute(
             query,

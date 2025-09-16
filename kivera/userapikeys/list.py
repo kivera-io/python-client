@@ -7,12 +7,14 @@ class listMethods:
     query ListUserApiKeys {
     UserApiKeys {
         client_id
+        org_client_id
         id
         org_id
         status
         user_id
         created
         description
+        expiry
         Organization {
             domain
             company_name

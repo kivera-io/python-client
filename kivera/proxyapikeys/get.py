@@ -5,10 +5,12 @@ class getMethods:
 
     _GetProxyApiKeyQuery = """
     query GetProxyApiKey($proxy_id: Int!) {
-  ProxyApiKeys(where: {proxy_id: {_eq: $proxy_id}}) {
+  ProxyApiKeys(where: {proxy_id: {_eq: $proxy_id}, expiry: {_is_null: true}}) {
     proxy_id
     id
     api_key
+    org_client_id
+    entity_secret
     Proxy {
       id
       organization_id

@@ -4,10 +4,11 @@ from typing import Sequence
 class updateMethods:
 
     _DisableUserApiKeyQuery = """
-    mutation DisableUserApiKey($client_id: String!) {
-    update_UserApiKeys(where: {client_id: {_eq: $client_id}}, _set: {status: false}) {
+    mutation DisableUserApiKey($user_id: String!, $client_id: String!) {
+    update_UserApiKeys(where: {user_id: {_eq: $user_id}, client_id: {_eq: $client_id}}, _set: {status: false}) {
         returning {
             client_id
+            org_client_id
             created
             id
             org_id
@@ -18,12 +19,43 @@ class updateMethods:
 }
     """
 
-    def DisableUserApiKey(self, client_id: str):
+    def DisableUserApiKey(self, user_id: str, client_id: str):
         query = gql(self._DisableUserApiKeyQuery)
         variables = {
+            "user_id": user_id,
             "client_id": client_id,
         }
         operation_name = "DisableUserApiKey"
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
+
+    _DisableUserApiKeyByIdQuery = """
+    mutation DisableUserApiKeyById($id: Int!) {
+    update_UserApiKeys(where: {id: {_eq: $id}}, _set: {status: false}) {
+        returning {
+            client_id
+            org_client_id
+            created
+            id
+            org_id
+            status
+            user_id
+        }
+    }
+}
+    """
+
+    def DisableUserApiKeyById(self, id: int):
+        query = gql(self._DisableUserApiKeyByIdQuery)
+        variables = {
+            "id": id,
+        }
+        operation_name = "DisableUserApiKeyById"
         operation_type = "write"
         return self.execute(
             query,
@@ -37,6 +69,7 @@ class updateMethods:
     update_UserApiKeys(where: {user_id: {_eq: $user_id}, org_id: {_eq: $org_id}, status: {_eq: true}}, _set: {status: false}) {
         returning {
             client_id
+            org_client_id
             created
             id
             org_id
@@ -67,6 +100,7 @@ class updateMethods:
     update_UserApiKeys(where: {id: {_eq: $id}}, _set: {description: $description}) {
         returning {
             client_id
+            org_client_id
             created
             id
             org_id
@@ -98,6 +132,7 @@ class updateMethods:
     update_UserApiKeys(where: {user_id: {_eq: $user_id}, org_id: {_eq: $org_id}}, _set: {status: $status}) {
         returning {
             client_id
+            org_client_id
             created
             id
             org_id
