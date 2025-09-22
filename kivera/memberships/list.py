@@ -56,6 +56,7 @@ class listMethods:
     Organization {
         id
         company_name
+        auth0_id
     }
   }
 }

@@ -20,6 +20,7 @@ class getMethods:
         company_name
         id
         beta_access
+        auth0_id
         Plan {
           id
           name
@@ -62,6 +63,7 @@ class getMethods:
         company_name
         id
         beta_access
+        auth0_id
       }
     }
   }

@@ -11,6 +11,7 @@ class listMethods:
         domain
         email_domain
         id
+        auth0_id
         max_total_request_count
         Memberships {
             MembershipRoles {
