@@ -127,9 +127,7 @@ fragment ProfileFields on Profiles {
   id
   description
   tags
-  ProfileRules(
-    where: { deleted: { _eq: false } }
-  ) {
+  ProfileRules(where: { deleted: { _eq: false } }) {
     Rule {
       id
       description
@@ -194,9 +192,7 @@ fragment ProfileFieldsV4 on Profiles {
   id
   description
   tags
-  ProfileRules(
-    where: { deleted: { _eq: false } }
-  ) {
+  ProfileRules(where: { deleted: { _eq: false } }) {
     Rule {
       id
       description

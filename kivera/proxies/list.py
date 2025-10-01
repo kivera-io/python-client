@@ -5,7 +5,7 @@ class listMethods:
 
     _ListProxiesQuery = """
     query ListProxies {
-  Proxies(where: {status: {_neq: "DELETED"}}) {
+  Proxies(where: { status: { _neq: "DELETED" } }) {
     id
     name
     description
@@ -25,11 +25,14 @@ class listMethods:
       id
       given_name
     }
-    ProxyIdentities(where: {deleted: {_eq: false}, Identity: {status: {_eq: true}}}) {
+    ProxyIdentities(
+      where: { deleted: { _eq: false }, Identity: { status: { _eq: true } } }
+    ) {
       identity_id
     }
     ProxySettings {
       debug
+      log_level
       proxy_mode
       default_mode
       learning_mode
@@ -72,7 +75,7 @@ class listMethods:
         }
       }
     }
-    ProxyDeployments(limit: 1, order_by: {id: desc}) {
+    ProxyDeployments(limit: 1, order_by: { id: desc }) {
       id
       config
       created_by_user_id
@@ -90,7 +93,7 @@ class listMethods:
       actioned_by_user_id
     }
   }
-  Proxies_aggregate(where: {status: {_neq: "DELETED"}}) {
+  Proxies_aggregate(where: { status: { _neq: "DELETED" } }) {
     aggregate {
       count
     }

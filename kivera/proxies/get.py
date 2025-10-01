@@ -91,6 +91,7 @@ class getMethods:
   }
   ProxySettings {
     debug
+    log_level
     default_mode
     proxy_mode
     allow_noncloud_traffic
@@ -152,9 +153,7 @@ fragment ProfileFields on Profiles {
   id
   description
   tags
-  ProfileRules(
-    where: { deleted: { _eq: false } }
-  ) {
+  ProfileRules(where: { deleted: { _eq: false } }) {
     Rule {
       id
       description
@@ -217,6 +216,7 @@ fragment ProfileFields on Profiles {
     ProxySettings {
       id
       debug
+      log_level
       default_identity_id
       proxy_id
       proxy_mode
@@ -299,7 +299,7 @@ fragment ProfileFields on Profiles {
       actioned_by_user_id
     }
   }
-  Identities_aggregate(where: {status: {_eq: true}}) {
+  Identities_aggregate(where: { status: { _eq: true } }) {
     aggregate {
       count
     }
