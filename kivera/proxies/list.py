@@ -43,6 +43,7 @@ class listMethods:
       config_update_freq_secs
       idle_connection_timeout
       inspect_body_size_limit
+      rego_version
     }
     ProxyDomainAcls {
       proxy_id

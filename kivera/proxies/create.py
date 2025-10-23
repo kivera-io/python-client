@@ -93,6 +93,7 @@ class createMethods:
   $config_update_freq_secs: Int! = 10
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
+  $rego_version: String
 ) {
   insert_Proxies(
     objects: {
@@ -114,6 +115,7 @@ class createMethods:
           config_update_freq_secs: $config_update_freq_secs
           idle_connection_timeout: $idle_connection_timeout
           inspect_body_size_limit: $inspect_body_size_limit
+          rego_version: $rego_version
         }
       }
       ProxyProviders: { data: $providers }
@@ -142,6 +144,7 @@ class createMethods:
         config_update_freq_secs
         idle_connection_timeout
         inspect_body_size_limit
+        rego_version
       }
       ProxyProviders {
         id

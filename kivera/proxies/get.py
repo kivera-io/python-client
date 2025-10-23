@@ -105,6 +105,7 @@ class getMethods:
       description
       identity_type
     }
+    rego_version
   }
   Counters {
     counter_total_request
@@ -237,6 +238,7 @@ fragment ProfileFields on Profiles {
         }
         config
       }
+      rego_version
     }
     ProxyIdentities(where: { deleted: { _eq: false } }) {
       identity_id
@@ -365,6 +367,7 @@ fragment ProfileFields on Profiles {
       proxy_mode
       rego_raise_error
       on_error_action
+      rego_version
     }
     ProxyProviders {
       id
