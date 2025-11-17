@@ -41,6 +41,7 @@ class getMethods:
     config
     tags
     policy
+    rego_version
     RuleDependencies {
       deleted
       dependent_rule_id
@@ -81,6 +82,7 @@ class getMethods:
     risk_rating
     compliance_mappings
     policy
+    rego_version
     ImportedFrom {
       id
       version

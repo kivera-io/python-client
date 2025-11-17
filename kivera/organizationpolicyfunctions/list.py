@@ -9,6 +9,7 @@ class listMethods:
         id
         function
         name
+        rego_version
     }
 }
     """

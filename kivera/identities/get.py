@@ -107,6 +107,7 @@ class getMethods:
     	id
       organization_id
       function
+      rego_version
     }
   }
   Identities(where: {status: {_eq: true}}) {
@@ -139,6 +140,7 @@ fragment ProfileFields on Profiles {
       enforce
       log_request_body
       tags
+      rego_version
       Service {
         GlobalService {
           name
@@ -172,6 +174,7 @@ fragment ProfileFields on Profiles {
       id
       organization_id
       function
+      rego_version
     }
   }
   Identities(where: {status: {_eq: true}}) {
@@ -206,6 +209,7 @@ fragment ProfileFieldsV4 on Profiles {
       compliance_mappings
       risk_rating
       policy
+      rego_version
       Service {
         GlobalService {
           name

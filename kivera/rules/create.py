@@ -48,7 +48,9 @@ class createMethods:
   # @genqlient(pointer: true)
   $risk_rating: risk_rating_type = null,
   $compliance_mappings: jsonb! = [],
-  $type_id: Int = 1
+  $type_id: Int = 1,
+  # @genqlient(omitempty: true)
+  $rego_version: String
 ) {
   insert_Rules(objects: {
     config: $config,
@@ -64,7 +66,8 @@ class createMethods:
     policy: $policy,
     risk_rating: $risk_rating,
     compliance_mappings: $compliance_mappings,
-    type_id: $type_id
+    type_id: $type_id,
+    rego_version: $rego_version
   }) {
     returning {
       id
@@ -76,6 +79,7 @@ class createMethods:
       service_id
       tags
       policy
+      rego_version
       risk_rating
       compliance_mappings
       RuleDependencies {
@@ -154,6 +158,7 @@ class createMethods:
       risk_rating
       compliance_mappings
       policy
+      rego_version
     }
   }
 }

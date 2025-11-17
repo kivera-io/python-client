@@ -48,7 +48,9 @@ class updateMethods:
   # @genqlient(pointer: true)
   $risk_rating: risk_rating_type = null,
   $compliance_mappings: jsonb! = [],
-  $type_id: Int = 1
+  $type_id: Int = 1,
+  # @genqlient(omitempty: true)
+  $rego_version: String
 ) {
   update_Rules(where: {
     id: {_eq: $id}
@@ -64,7 +66,8 @@ class updateMethods:
     tags: $tags,
     risk_rating: $risk_rating,
     compliance_mappings: $compliance_mappings,
-    type_id: $type_id
+    type_id: $type_id,
+    rego_version: $rego_version
   }) {
     returning {
       dependencies_enabled
@@ -72,6 +75,7 @@ class updateMethods:
       enable_cfn_scan
       enforce
       policy
+      rego_version
       id
       log_request_body
       tags

@@ -14,6 +14,7 @@ class listMethods:
     enforce
     log_request_body
     policy
+    rego_version
     config
     dependencies_enabled
     tags

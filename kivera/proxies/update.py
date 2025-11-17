@@ -318,7 +318,6 @@ class updateMethods:
   $config_update_freq_secs: Int! = 10
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
-  $rego_version: String
 ) {
   update_Proxies(
     where: { id: { _eq: $id } }
@@ -348,7 +347,6 @@ class updateMethods:
       config_update_freq_secs: $config_update_freq_secs
       idle_connection_timeout: $idle_connection_timeout
       inspect_body_size_limit: $inspect_body_size_limit
-      rego_version: $rego_version
     }
   ) {
     returning {
@@ -364,7 +362,6 @@ class updateMethods:
       config_update_freq_secs
       idle_connection_timeout
       inspect_body_size_limit
-      rego_version
     }
   }
   insert_ProxyProviders(

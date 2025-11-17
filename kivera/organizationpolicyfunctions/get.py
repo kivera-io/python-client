@@ -9,6 +9,7 @@ class getMethods:
         function
         id
         organization_id
+        rego_version
     }
 }
     """
@@ -32,6 +33,7 @@ class getMethods:
         function
         id
         organization_id
+        rego_version
     }
 }
     """
@@ -57,6 +59,7 @@ class getMethods:
   }
   OrganizationPolicyFunctions(order_by: {id: asc}, where: {Organization: {Services: {id: {_eq: $service_id}}}}) {
     function
+    rego_version
   }
 }
     """

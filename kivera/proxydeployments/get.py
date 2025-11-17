@@ -165,6 +165,7 @@ class getMethods:
       id
       name
       function
+      rego_version
     }
   }
   Profiles(
@@ -222,6 +223,7 @@ fragment ProxyDeploymentProfileFields on Profiles {
       enforce
       log_request_body
       tags
+      rego_version
       Service {
         GlobalService {
           name
@@ -361,6 +363,7 @@ fragment ProxyDeploymentProfileFields on Profiles {
       id
       name
       function
+      rego_version
     }
     CloudTenants {
       id
@@ -425,6 +428,7 @@ fragment ProxyDeploymentProfileFieldsV1_4 on Profiles {
       log_request_body
       tags
       policy
+      rego_version
       Service {
         GlobalService {
           name
