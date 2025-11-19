@@ -5,36 +5,37 @@ class listMethods:
 
     _ListManagedRulesQuery = """
     query ListManagedRules {
-    ManagedRules{
+  ManagedRules {
+    id
+    type_id
+    description
+    policy
+    config
+    tags
+    version
+    risk_rating
+    rego_version
+    compliance_mappings
+    Service {
+      id
+      GlobalService {
         id
-        type_id
-        description
-        policy
-        config
-        tags
-        version
-        risk_rating
-        compliance_mappings
-        Service {
-            id
-            GlobalService {
-                id
-                name
-                Provider {
-                    id
-                    name
-                }
-                Services {
-                    id
-                    inspection
-                }
-            }
+        name
+        Provider {
+          id
+          name
         }
-        enforce
-        log_request_body
-        created_at
-        updated_at
+        Services {
+          id
+          inspection
+        }
+      }
     }
+    enforce
+    log_request_body
+    created_at
+    updated_at
+  }
 }
     """
 
