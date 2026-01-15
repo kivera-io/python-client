@@ -33,6 +33,7 @@ class listMethods:
     ProxySettings {
       debug
       log_level
+      deployment_mode_enabled
       proxy_mode
       default_mode
       learning_mode
@@ -88,6 +89,8 @@ class listMethods:
       }
       config_version
       status
+      deployed
+      comment
       proxy_id
       date_modified
       actioned_by_user_id

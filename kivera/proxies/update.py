@@ -9,6 +9,7 @@ class updateMethods:
   $name: String!
   $debug: Boolean!
   $log_level: String!
+  $deployment_mode_enabled: Boolean = false
   $id: Int!
   $proxy_mode: String!
   $default_identity_id: Int
@@ -25,6 +26,7 @@ class updateMethods:
     _set: {
       debug: $debug
       log_level: $log_level
+      deployment_mode_enabled: $deployment_mode_enabled
       proxy_mode: $proxy_mode
       default_identity_id: $default_identity_id
     }
@@ -35,6 +37,7 @@ class updateMethods:
       default_identity_id
       debug
       log_level
+      deployment_mode_enabled
     }
   }
   update_ProxyProviders(
@@ -303,6 +306,7 @@ class updateMethods:
   $description: String!
   $debug: Boolean = false
   $log_level: String!
+  $deployment_mode_enabled: Boolean = false
   $proxy_mode: String = "HYBRID"
   $default_mode: proxysettings_default_mode_type!
   $learning_mode: Boolean!
@@ -337,6 +341,7 @@ class updateMethods:
     _set: {
       debug: $debug
       log_level: $log_level
+      deployment_mode_enabled: $deployment_mode_enabled
       proxy_mode: $proxy_mode
       default_identity_id: $default_identity_id
       allow_noncloud_traffic: $allow_noncloud_traffic
@@ -353,6 +358,7 @@ class updateMethods:
       id
       debug
       log_level
+      deployment_mode_enabled
       proxy_mode
       default_mode
       learning_mode

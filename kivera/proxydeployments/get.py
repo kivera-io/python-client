@@ -6,15 +6,16 @@ class getMethods:
     _GetLatestProxyDeploymentConfigQuery = """
     query GetLatestProxyDeploymentConfig {
   ProxyDeployments(
-    order_by: { date_created: desc }
-    limit: 1
-    where: { status: { _eq: "APPROVED" } }
+    where: { status: { _eq: "APPROVED" }, deployed: { _eq: true } }
   ) {
     id
+    config
     created_by_user_id
     date_created
     config_version
     status
+    deployed
+    comment
     proxy_id
     date_modified
     actioned_by_user_id

@@ -92,6 +92,7 @@ class getMethods:
   ProxySettings {
     debug
     log_level
+    deployment_mode_enabled
     default_mode
     proxy_mode
     allow_noncloud_traffic
@@ -219,6 +220,7 @@ fragment ProfileFields on Profiles {
       id
       debug
       log_level
+      deployment_mode_enabled
       default_identity_id
       proxy_id
       proxy_mode
@@ -296,6 +298,8 @@ fragment ProfileFields on Profiles {
       }
       config_version
       status
+      deployed
+      comment
       proxy_id
       date_modified
       actioned_by_user_id
