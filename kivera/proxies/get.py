@@ -9,6 +9,7 @@ class getMethods:
     description
     id
     last_healthcheck_time
+    last_config_update_time
     name
     organization_id
     status
@@ -200,6 +201,7 @@ fragment ProfileFields on Profiles {
     description
     id
     last_healthcheck_time
+    last_config_update_time
     name
     organization_id
     status
@@ -230,6 +232,7 @@ fragment ProfileFields on Profiles {
       rego_raise_error
       on_error_action
       config_update_freq_secs
+      config_update_enabled
       Identity {
         id
         name
@@ -298,8 +301,6 @@ fragment ProfileFields on Profiles {
       }
       config_version
       status
-      deployed
-      comment
       proxy_id
       date_modified
       actioned_by_user_id
@@ -333,6 +334,7 @@ fragment ProfileFields on Profiles {
     description
     id
     last_healthcheck_time
+    last_config_update_time
     name
     organization_id
     status
@@ -360,6 +362,7 @@ fragment ProfileFields on Profiles {
     description
     id
     last_healthcheck_time
+    last_config_update_time
     name
     organization_id
     status

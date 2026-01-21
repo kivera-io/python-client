@@ -4,8 +4,8 @@ from typing import Sequence
 class updateMethods:
 
     _UpdateProxyDeploymentQuery = """
-    mutation UpdateProxyDeployment($id: Int!, $status: String!, $deployed: Boolean = false, $comment: String) {
-  update_ProxyDeployments_by_pk(pk_columns:{id: $id}, _set: {status: $status, deployed: $deployed, comment: $comment}) {
+    mutation UpdateProxyDeployment($id: Int!, $status: String!) {
+  update_ProxyDeployments_by_pk(pk_columns:{id: $id}, _set: {status: $status}) {
     id
     config
     created_by_user_id
@@ -18,8 +18,6 @@ class updateMethods:
     }
     config_version
     status
-    deployed
-    comment
     proxy_id
     date_modified
     actioned_by_user_id
@@ -27,13 +25,11 @@ class updateMethods:
 }
     """
 
-    def UpdateProxyDeployment(self, id: int, status: str, deployed: dict = None, comment: str = None):
+    def UpdateProxyDeployment(self, id: int, status: str):
         query = gql(self._UpdateProxyDeploymentQuery)
         variables = {
             "id": id,
             "status": status,
-            "deployed": deployed,
-            "comment": comment,
         }
         operation_name = "UpdateProxyDeployment"
         operation_type = "write"

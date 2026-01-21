@@ -185,6 +185,34 @@ class updateMethods:
             operation_type=operation_type,
         )
 
+    _UpdateProxyLastConfigUpdateTimeQuery = """
+    mutation UpdateProxyLastConfigUpdateTime($proxy_id: Int!, $last_config_update_time: timestamptz!) {
+  __typename
+  update_Proxies_by_pk(
+    pk_columns: { id: $proxy_id }
+    _set: { last_config_update_time: $last_config_update_time }
+  ) {
+    id
+    last_config_update_time
+  }
+}
+    """
+
+    def UpdateProxyLastConfigUpdateTime(self, proxy_id: int, last_config_update_time: dict):
+        query = gql(self._UpdateProxyLastConfigUpdateTimeQuery)
+        variables = {
+            "proxy_id": proxy_id,
+            "last_config_update_time": last_config_update_time,
+        }
+        operation_name = "UpdateProxyLastConfigUpdateTime"
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
+
     _UpdateProxyLearningModeQuery = """
     mutation UpdateProxyLearningMode(
   $proxy_id: Int!
@@ -320,6 +348,7 @@ class updateMethods:
   $rego_raise_error: Boolean = false
   $on_error_action: rule_evaluation_action!
   $config_update_freq_secs: Int! = 10
+  $config_update_enabled: Boolean = true
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
 ) {
@@ -333,6 +362,7 @@ class updateMethods:
       name
       organization_id
       status
+      last_config_update_time
       last_healthcheck_time
     }
   }
@@ -350,6 +380,7 @@ class updateMethods:
       rego_raise_error: $rego_raise_error
       on_error_action: $on_error_action
       config_update_freq_secs: $config_update_freq_secs
+      config_update_enabled: $config_update_enabled
       idle_connection_timeout: $idle_connection_timeout
       inspect_body_size_limit: $inspect_body_size_limit
     }
@@ -366,6 +397,7 @@ class updateMethods:
       rego_raise_error
       on_error_action
       config_update_freq_secs
+      config_update_enabled
       idle_connection_timeout
       inspect_body_size_limit
     }

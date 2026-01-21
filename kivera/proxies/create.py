@@ -95,6 +95,7 @@ class createMethods:
   $rego_raise_error: Boolean = false
   $on_error_action: rule_evaluation_action!
   $config_update_freq_secs: Int! = 10
+  $config_update_enabled: Boolean = true
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
 ) {
@@ -117,6 +118,7 @@ class createMethods:
           rego_raise_error: $rego_raise_error
           on_error_action: $on_error_action
           config_update_freq_secs: $config_update_freq_secs
+          config_update_enabled: $config_update_enabled
           idle_connection_timeout: $idle_connection_timeout
           inspect_body_size_limit: $inspect_body_size_limit
         }
@@ -146,6 +148,7 @@ class createMethods:
         rego_raise_error
         on_error_action
         config_update_freq_secs
+        config_update_enabled
         idle_connection_timeout
         inspect_body_size_limit
       }
