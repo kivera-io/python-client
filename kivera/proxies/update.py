@@ -130,6 +130,38 @@ class updateMethods:
             operation_type=operation_type,
         )
 
+    _UpdateProxyConfigUpdateEnabledQuery = """
+    mutation UpdateProxyConfigUpdateEnabled(
+  $id: Int!
+  $config_update_enabled: Boolean!
+) {
+  update_ProxySettings(
+    where: { proxy_id: { _eq: $id } }
+    _set: {
+      config_update_enabled: $config_update_enabled
+    }
+  ) {
+    returning {
+      id
+      config_update_enabled
+    }
+  }
+}
+    """
+
+    def UpdateProxyConfigUpdateEnabled(self):
+        query = gql(self._UpdateProxyConfigUpdateEnabledQuery)
+        variables = {
+        }
+        operation_name = "UpdateProxyConfigUpdateEnabled"
+        operation_type = "write"
+        return self.execute(
+            query,
+            variable_values=variables,
+            operation_name=operation_name,
+            operation_type=operation_type,
+        )
+
     _UpdateProxyDescriptionQuery = """
     mutation UpdateProxyDescription($description: String!, $id: Int!) {
   update_Proxies_by_pk(
