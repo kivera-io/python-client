@@ -10,7 +10,6 @@ class createMethods:
   $organization_id: Int!
   $debug: Boolean!
   $log_level: String!
-  $deployment_mode_enabled: Boolean = false
   $proxy_mode: String!
   $default_identity_id: Int
   $provider_data: [ProxyProviders_insert_input!]!
@@ -28,7 +27,6 @@ class createMethods:
           proxy_mode: $proxy_mode
           debug: $debug
           log_level: $log_level
-          deployment_mode_enabled: $deployment_mode_enabled
           default_identity_id: $default_identity_id
           allow_noncloud_traffic: $allow_noncloud_traffic
           default_mode: $default_mode
@@ -47,7 +45,6 @@ class createMethods:
       default_identity_id
       debug
       log_level
-      deployment_mode_enabled
       proxy_mode
       default_mode
       learning_mode
@@ -81,7 +78,6 @@ class createMethods:
   $organization_id: Int!
   $debug: Boolean = false
   $log_level: String!
-  $deployment_mode_enabled: Boolean = false
   $proxy_mode: String = "HYBRID"
   $default_mode: proxysettings_default_mode_type!
   $learning_mode: Boolean!
@@ -110,7 +106,6 @@ class createMethods:
           proxy_mode: $proxy_mode
           debug: $debug
           log_level: $log_level
-          deployment_mode_enabled: $deployment_mode_enabled
           default_identity_id: $default_identity_id
           allow_noncloud_traffic: $allow_noncloud_traffic
           default_mode: $default_mode
@@ -139,7 +134,6 @@ class createMethods:
         id
         debug
         log_level
-        deployment_mode_enabled
         proxy_mode
         default_mode
         learning_mode
