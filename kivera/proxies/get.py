@@ -231,6 +231,7 @@ fragment ProfileFields on Profiles {
       on_error_action
       config_update_freq_secs
       config_update_enabled
+      aws_bypass_dataplane_inspection
       Identity {
         id
         name

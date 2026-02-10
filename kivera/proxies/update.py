@@ -134,9 +134,7 @@ class updateMethods:
 ) {
   update_ProxySettings(
     where: { proxy_id: { _eq: $id } }
-    _set: {
-      config_update_enabled: $config_update_enabled
-    }
+    _set: { config_update_enabled: $config_update_enabled }
   ) {
     returning {
       id
@@ -215,7 +213,10 @@ class updateMethods:
         )
 
     _UpdateProxyLastConfigUpdateTimeQuery = """
-    mutation UpdateProxyLastConfigUpdateTime($proxy_id: Int!, $last_config_update_time: timestamptz!) {
+    mutation UpdateProxyLastConfigUpdateTime(
+  $proxy_id: Int!
+  $last_config_update_time: timestamptz!
+) {
   __typename
   update_Proxies_by_pk(
     pk_columns: { id: $proxy_id }
@@ -227,11 +228,9 @@ class updateMethods:
 }
     """
 
-    def UpdateProxyLastConfigUpdateTime(self, proxy_id: int, last_config_update_time: dict):
+    def UpdateProxyLastConfigUpdateTime(self):
         query = gql(self._UpdateProxyLastConfigUpdateTimeQuery)
         variables = {
-            "proxy_id": proxy_id,
-            "last_config_update_time": last_config_update_time,
         }
         operation_name = "UpdateProxyLastConfigUpdateTime"
         operation_type = "write"
@@ -377,6 +376,7 @@ class updateMethods:
   $on_error_action: rule_evaluation_action!
   $config_update_freq_secs: Int! = 10
   $config_update_enabled: Boolean = true
+  $aws_bypass_dataplane_inspection: Boolean = false
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
 ) {
@@ -408,6 +408,7 @@ class updateMethods:
       on_error_action: $on_error_action
       config_update_freq_secs: $config_update_freq_secs
       config_update_enabled: $config_update_enabled
+      aws_bypass_dataplane_inspection: $aws_bypass_dataplane_inspection
       idle_connection_timeout: $idle_connection_timeout
       inspect_body_size_limit: $inspect_body_size_limit
     }
@@ -424,6 +425,7 @@ class updateMethods:
       on_error_action
       config_update_freq_secs
       config_update_enabled
+      aws_bypass_dataplane_inspection
       idle_connection_timeout
       inspect_body_size_limit
     }

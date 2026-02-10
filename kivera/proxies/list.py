@@ -43,6 +43,7 @@ class listMethods:
       on_error_action
       config_update_freq_secs
       config_update_enabled
+      aws_bypass_dataplane_inspection
       idle_connection_timeout
       inspect_body_size_limit
     }
