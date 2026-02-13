@@ -1,4 +1,4 @@
-__version__ = "v1.51.0"
+__version__ = "v1.52.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -7,6 +7,7 @@ from gql.transport.exceptions import TransportQueryError
 from jose import jwt, exceptions
 from datetime import datetime, timedelta
 from typing import Optional
+from kivera.awsiamproxyaccess import AwsIamProxyAccessMethods
 from kivera.cloudtenants import CloudTenantsMethods
 from kivera.compliancemappings import ComplianceMappingsMethods
 from kivera.config import ConfigMethods
@@ -47,7 +48,8 @@ class ClientError(Exception):
 
 class Client(
     GqlClient,
-    CloudTenantsMethods,
+    AwsIamProxyAccessMethods,
+	CloudTenantsMethods,
 	ComplianceMappingsMethods,
 	ConfigMethods,
 	CountersMethods,
