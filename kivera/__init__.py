@@ -1,4 +1,4 @@
-__version__ = "v1.52.0"
+__version__ = "v1.53.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -82,7 +82,7 @@ class Client(
 	UsersMethods
 ):
 
-    def __init__(self, credentials={}, url="", headers={}, timeout=30):
+    def __init__(self, credentials={}, url="", headers={}, timeout=30, ssl=True):
         if type(credentials) != dict:
             raise Exception("invalid parameter: credentials must be a dictionary")
 
@@ -97,6 +97,7 @@ class Client(
         self._token = None
         self._jwks_key = None
         self.context = {}
+        self.ssl = ssl
 
         self._extract_auth_token()
 
@@ -151,7 +152,7 @@ class Client(
 
     def _get_transport(self):
         self.headers['authorization'] = f'Bearer {self._token}'
-        return AIOHTTPTransport(url=self._gql_endpoint, headers=self.headers)
+        return AIOHTTPTransport(url=self._gql_endpoint, headers=self.headers, ssl=self.ssl)
 
     def _refresh_token(self):
         authDomain = self._credentials.get('auth0_domain')
