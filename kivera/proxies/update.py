@@ -185,62 +185,6 @@ class updateMethods:
             operation_type=operation_type,
         )
 
-    _UpdateProxyHealthCheckTimeQuery = """
-    mutation UpdateProxyHealthCheckTime($proxy_id: Int!) {
-  __typename
-  update_Proxies_by_pk(
-    pk_columns: { id: $proxy_id }
-    _set: { last_healthcheck_time: "now()" }
-  ) {
-    id
-    last_healthcheck_time
-  }
-}
-    """
-
-    def UpdateProxyHealthCheckTime(self, proxy_id: int):
-        query = gql(self._UpdateProxyHealthCheckTimeQuery)
-        variables = {
-            "proxy_id": proxy_id,
-        }
-        operation_name = "UpdateProxyHealthCheckTime"
-        operation_type = "write"
-        return self.execute(
-            query,
-            variable_values=variables,
-            operation_name=operation_name,
-            operation_type=operation_type,
-        )
-
-    _UpdateProxyLastConfigUpdateTimeQuery = """
-    mutation UpdateProxyLastConfigUpdateTime(
-  $proxy_id: Int!
-  $last_config_update_time: timestamptz!
-) {
-  __typename
-  update_Proxies_by_pk(
-    pk_columns: { id: $proxy_id }
-    _set: { last_config_update_time: $last_config_update_time }
-  ) {
-    id
-    last_config_update_time
-  }
-}
-    """
-
-    def UpdateProxyLastConfigUpdateTime(self):
-        query = gql(self._UpdateProxyLastConfigUpdateTimeQuery)
-        variables = {
-        }
-        operation_name = "UpdateProxyLastConfigUpdateTime"
-        operation_type = "write"
-        return self.execute(
-            query,
-            variable_values=variables,
-            operation_name=operation_name,
-            operation_type=operation_type,
-        )
-
     _UpdateProxyLearningModeQuery = """
     mutation UpdateProxyLearningMode(
   $proxy_id: Int!
@@ -379,10 +323,16 @@ class updateMethods:
   $aws_bypass_dataplane_inspection: Boolean = false
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
+  $credentials_auth_enabled: Boolean = true
 ) {
   update_Proxies(
     where: { id: { _eq: $id } }
-    _set: { description: $description, name: $name, tags: $tags }
+    _set: {
+      description: $description
+      name: $name
+      tags: $tags
+      credentials_auth_enabled: $credentials_auth_enabled
+    }
   ) {
     returning {
       id
@@ -392,6 +342,7 @@ class updateMethods:
       status
       last_config_update_time
       last_healthcheck_time
+      credentials_auth_enabled
     }
   }
   update_ProxySettings(

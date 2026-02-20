@@ -3,9 +3,9 @@ from typing import Sequence
 
 class listMethods:
 
-    _ListAwsIamProxyAccessQuery = """
-    query ListAwsIamProxyAccess {
-    AwsIamProxyAccess {
+    _ListProxyAwsIamAccessQuery = """
+    query ListProxyAwsIamAccess {
+    ProxyAwsIamAccess {
         id
         role_arn
         proxy_id
@@ -14,11 +14,11 @@ class listMethods:
 }
     """
 
-    def ListAwsIamProxyAccess(self):
-        query = gql(self._ListAwsIamProxyAccessQuery)
+    def ListProxyAwsIamAccess(self):
+        query = gql(self._ListProxyAwsIamAccessQuery)
         variables = {
         }
-        operation_name = "ListAwsIamProxyAccess"
+        operation_name = "ListProxyAwsIamAccess"
         operation_type = "read"
         return self.execute(
             query,

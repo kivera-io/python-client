@@ -3,9 +3,9 @@ from typing import Sequence
 
 class createMethods:
 
-    _CreateAwsIamProxyAccessQuery = """
-    mutation CreateAwsIamProxyAccess($organization_id: Int!, $role_arn: String!, $proxy_id: Int!) {
-  insert_AwsIamProxyAccess(objects: {
+    _CreateProxyAwsIamAccessQuery = """
+    mutation CreateProxyAwsIamAccess($organization_id: Int!, $role_arn: String!, $proxy_id: Int!) {
+  insert_ProxyAwsIamAccess(objects: {
     organization_id: $organization_id,
     role_arn: $role_arn,
     proxy_id: $proxy_id
@@ -17,14 +17,14 @@ class createMethods:
 }
     """
 
-    def CreateAwsIamProxyAccess(self, organization_id: int, role_arn: str, proxy_id: int):
-        query = gql(self._CreateAwsIamProxyAccessQuery)
+    def CreateProxyAwsIamAccess(self, organization_id: int, role_arn: str, proxy_id: int):
+        query = gql(self._CreateProxyAwsIamAccessQuery)
         variables = {
             "organization_id": organization_id,
             "role_arn": role_arn,
             "proxy_id": proxy_id,
         }
-        operation_name = "CreateAwsIamProxyAccess"
+        operation_name = "CreateProxyAwsIamAccess"
         operation_type = "write"
         return self.execute(
             query,

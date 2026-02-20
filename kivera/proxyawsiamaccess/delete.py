@@ -3,20 +3,20 @@ from typing import Sequence
 
 class deleteMethods:
 
-    _DeleteAwsIamProxyAccessQuery = """
-    mutation DeleteAwsIamProxyAccess($id: Int!) {
-    delete_AwsIamProxyAccess_by_pk(id: $id) {
+    _DeleteProxyAwsIamAccessQuery = """
+    mutation DeleteProxyAwsIamAccess($id: Int!) {
+    delete_ProxyAwsIamAccess_by_pk(id: $id) {
         id
     }
 }
     """
 
-    def DeleteAwsIamProxyAccess(self, id: int):
-        query = gql(self._DeleteAwsIamProxyAccessQuery)
+    def DeleteProxyAwsIamAccess(self, id: int):
+        query = gql(self._DeleteProxyAwsIamAccessQuery)
         variables = {
             "id": id,
         }
-        operation_name = "DeleteAwsIamProxyAccess"
+        operation_name = "DeleteProxyAwsIamAccess"
         operation_type = "write"
         return self.execute(
             query,

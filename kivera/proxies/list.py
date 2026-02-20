@@ -14,6 +14,7 @@ class listMethods:
     organization_id
     status
     tags
+    credentials_auth_enabled
     created_at
     updated_at
     UpdatedByUser {

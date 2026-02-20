@@ -95,6 +95,7 @@ class createMethods:
   $aws_bypass_dataplane_inspection: Boolean = false
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
+  $credentials_auth_enabled: Boolean = true
 ) {
   insert_Proxies(
     objects: {
@@ -102,6 +103,7 @@ class createMethods:
       name: $name
       organization_id: $organization_id
       tags: $tags
+      credentials_auth_enabled: $credentials_auth_enabled
       ProxySettings: {
         data: {
           proxy_mode: $proxy_mode
@@ -132,6 +134,7 @@ class createMethods:
       organization_id
       status
       tags
+      credentials_auth_enabled
       ProxySettings {
         id
         debug

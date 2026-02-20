@@ -13,6 +13,7 @@ class getMethods:
     name
     organization_id
     status
+    credentials_auth_enabled
   }
 }
     """
@@ -205,6 +206,7 @@ fragment ProfileFields on Profiles {
     organization_id
     status
     tags
+    credentials_auth_enabled
     created_at
     updated_at
     UpdatedByUser {
@@ -337,6 +339,7 @@ fragment ProfileFields on Profiles {
     name
     organization_id
     status
+    credentials_auth_enabled
   }
 }
     """
@@ -366,6 +369,7 @@ fragment ProfileFields on Profiles {
     organization_id
     status
     tags
+    credentials_auth_enabled
     ProxySettings {
       allow_noncloud_traffic
       debug

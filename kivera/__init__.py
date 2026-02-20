@@ -1,4 +1,4 @@
-__version__ = "v1.53.0"
+__version__ = "v1.54.0"
 import json
 import requests
 from gql import Client as GqlClient
@@ -7,7 +7,6 @@ from gql.transport.exceptions import TransportQueryError
 from jose import jwt, exceptions
 from datetime import datetime, timedelta
 from typing import Optional
-from kivera.awsiamproxyaccess import AwsIamProxyAccessMethods
 from kivera.cloudtenants import CloudTenantsMethods
 from kivera.compliancemappings import ComplianceMappingsMethods
 from kivera.config import ConfigMethods
@@ -29,6 +28,7 @@ from kivera.providerversions import ProviderVersionsMethods
 from kivera.providers import ProvidersMethods
 from kivera.proxies import ProxiesMethods
 from kivera.proxyapikeys import ProxyApiKeysMethods
+from kivera.proxyawsiamaccess import ProxyAwsIamAccessMethods
 from kivera.proxydeployments import ProxyDeploymentsMethods
 from kivera.proxyproviders import ProxyProvidersMethods
 from kivera.roles import RolesMethods
@@ -48,8 +48,7 @@ class ClientError(Exception):
 
 class Client(
     GqlClient,
-    AwsIamProxyAccessMethods,
-	CloudTenantsMethods,
+    CloudTenantsMethods,
 	ComplianceMappingsMethods,
 	ConfigMethods,
 	CountersMethods,
@@ -70,6 +69,7 @@ class Client(
 	ProvidersMethods,
 	ProxiesMethods,
 	ProxyApiKeysMethods,
+	ProxyAwsIamAccessMethods,
 	ProxyDeploymentsMethods,
 	ProxyProvidersMethods,
 	RolesMethods,
