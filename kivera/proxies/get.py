@@ -270,6 +270,10 @@ fragment ProfileFields on Profiles {
         }
       }
     }
+    ProxyAwsIamAccess {
+      id
+      role_arn
+    }
     ProxyProviders {
       id
       provider_id

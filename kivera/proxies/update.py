@@ -324,6 +324,7 @@ class updateMethods:
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
   $credentials_auth_enabled: Boolean = true
+  $aws_iam_access: [ProxyAwsIamAccess_insert_input!] = []
 ) {
   update_Proxies(
     where: { id: { _eq: $id } }
@@ -332,6 +333,7 @@ class updateMethods:
       name: $name
       tags: $tags
       credentials_auth_enabled: $credentials_auth_enabled
+      status: "UPDATING"
     }
   ) {
     returning {
@@ -422,6 +424,16 @@ class updateMethods:
           domain
         }
       }
+    }
+  }
+  delete_ProxyAwsIamAccess(where: {proxy_id: {_eq: $id}}) {
+    affected_rows
+  }
+  insert_ProxyAwsIamAccess(objects: $aws_iam_access) {
+    affected_rows
+    returning {
+      id
+      role_arn
     }
   }
 }

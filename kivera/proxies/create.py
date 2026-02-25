@@ -96,6 +96,7 @@ class createMethods:
   $idle_connection_timeout: Int! = 30
   $inspect_body_size_limit: Int! = 10000000
   $credentials_auth_enabled: Boolean = true
+  $aws_iam_access: [ProxyAwsIamAccess_insert_input!] = []
 ) {
   insert_Proxies(
     objects: {
@@ -125,6 +126,7 @@ class createMethods:
       ProxyProviders: { data: $providers }
       ProxyIdentities: { data: $identities }
       ProxyDomainAcls: { data: $domain_acls }
+      ProxyAwsIamAccess: { data: $aws_iam_access }
     }
   ) {
     returning {
@@ -173,6 +175,10 @@ class createMethods:
             domain
           }
         }
+      }
+      ProxyAwsIamAccess {
+        id
+        role_arn
       }
     }
   }
