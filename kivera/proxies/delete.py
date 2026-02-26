@@ -14,6 +14,9 @@ class deleteMethods:
   update_ProxyIdentities(where: {proxy_id: {_in: $ids}}, _set: {deleted: true}) {
     affected_rows
   }
+  delete_ProxyAwsIamAccess(where: {proxy_id: {_in: $ids}}) {
+    affected_rows
+  }
 }
     """
 
@@ -68,6 +71,9 @@ class deleteMethods:
     affected_rows
   }
   update_ProxyIdentities(where: {proxy_id: {_eq: $id}}, _set: {deleted: true}) {
+    affected_rows
+  }
+  delete_ProxyAwsIamAccess(where: {proxy_id: {_eq: $id}}) {
     affected_rows
   }
 }
