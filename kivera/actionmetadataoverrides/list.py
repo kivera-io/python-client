@@ -8,10 +8,6 @@ class listMethods:
   ActionMetadataOverrides {
     id
     organization_id
-    Provider {
-      id
-      name
-    }
     metadata
     created_at
     updated_at

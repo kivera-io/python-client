@@ -4,21 +4,12 @@ from typing import Sequence
 class createMethods:
 
     _CreateActionMetadataOverridesQuery = """
-    mutation CreateActionMetadataOverrides(
-  $org_id: Int!
-  $provider_id: Int!
-  $metadata: jsonb!
-) {
+    mutation CreateActionMetadataOverrides($org_id: Int!, $metadata: jsonb!) {
   insert_ActionMetadataOverrides_one(
-    object: {
-      organization_id: $org_id
-      provider_id: $provider_id
-      metadata: $metadata
-    }
+    object: { organization_id: $org_id, metadata: $metadata }
   ) {
     id
     organization_id
-    provider_id
     metadata
     created_at
     updated_at
@@ -28,9 +19,11 @@ class createMethods:
 }
     """
 
-    def CreateActionMetadataOverrides(self):
+    def CreateActionMetadataOverrides(self, org_id: int, metadata: dict):
         query = gql(self._CreateActionMetadataOverridesQuery)
         variables = {
+            "org_id": org_id,
+            "metadata": metadata,
         }
         operation_name = "CreateActionMetadataOverrides"
         operation_type = "write"

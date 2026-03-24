@@ -8,7 +8,6 @@ class getMethods:
   ActionMetadataOverrides_by_pk(id: $id) {
     id
     organization_id
-    provider_id
     metadata
     created_at
     updated_at
