@@ -47,6 +47,16 @@ class listMethods:
       aws_bypass_dataplane_inspection
       idle_connection_timeout
       inspect_body_size_limit
+      dial_timeout
+      dial_keep_alive_interval
+      request_header_timeout
+      response_header_timeout
+      tls_handshake_timeout
+      expect_continue_timeout
+      max_idle_connections
+      max_idle_connections_per_host
+      disable_keep_alives
+      disable_compression
     }
     ProxyDomainAcls {
       proxy_id

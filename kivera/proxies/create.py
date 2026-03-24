@@ -97,6 +97,16 @@ class createMethods:
   $inspect_body_size_limit: Int! = 10000000
   $credentials_auth_enabled: Boolean = true
   $aws_iam_access: [ProxyAwsIamAccess_insert_input!] = []
+  $dial_timeout: Int! = 30
+  $dial_keep_alive_interval: Int! = 30
+  $request_header_timeout: Int! = 30
+  $response_header_timeout: Int! = 10
+  $tls_handshake_timeout: Int! = 10
+  $expect_continue_timeout: Int! = 2
+  $max_idle_connections: Int! = 1024
+  $max_idle_connections_per_host: Int! = 128
+  $disable_keep_alives: Boolean = false
+  $disable_compression: Boolean = false
 ) {
   insert_Proxies(
     objects: {
@@ -121,6 +131,16 @@ class createMethods:
           aws_bypass_dataplane_inspection: $aws_bypass_dataplane_inspection
           idle_connection_timeout: $idle_connection_timeout
           inspect_body_size_limit: $inspect_body_size_limit
+          dial_timeout: $dial_timeout
+          dial_keep_alive_interval: $dial_keep_alive_interval
+          request_header_timeout: $request_header_timeout
+          response_header_timeout: $response_header_timeout
+          tls_handshake_timeout: $tls_handshake_timeout
+          expect_continue_timeout: $expect_continue_timeout
+          max_idle_connections: $max_idle_connections
+          max_idle_connections_per_host: $max_idle_connections_per_host
+          disable_keep_alives: $disable_keep_alives
+          disable_compression: $disable_compression
         }
       }
       ProxyProviders: { data: $providers }
@@ -153,6 +173,16 @@ class createMethods:
         aws_bypass_dataplane_inspection
         idle_connection_timeout
         inspect_body_size_limit
+        dial_timeout
+        dial_keep_alive_interval
+        request_header_timeout
+        response_header_timeout
+        tls_handshake_timeout
+        expect_continue_timeout
+        max_idle_connections
+        max_idle_connections_per_host
+        disable_keep_alives
+        disable_compression
       }
       ProxyProviders {
         id

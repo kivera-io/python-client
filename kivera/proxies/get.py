@@ -100,6 +100,16 @@ class getMethods:
     default_identity_id
     rego_raise_error
     on_error_action
+    dial_timeout
+    dial_keep_alive_interval
+    request_header_timeout
+    response_header_timeout
+    tls_handshake_timeout
+    expect_continue_timeout
+    max_idle_connections
+    max_idle_connections_per_host
+    disable_keep_alives
+    disable_compression
     Identity {
       tags
       name
@@ -234,6 +244,16 @@ fragment ProfileFields on Profiles {
       config_update_freq_secs
       config_update_enabled
       aws_bypass_dataplane_inspection
+      dial_timeout
+      dial_keep_alive_interval
+      request_header_timeout
+      response_header_timeout
+      tls_handshake_timeout
+      expect_continue_timeout
+      max_idle_connections
+      max_idle_connections_per_host
+      disable_keep_alives
+      disable_compression
       Identity {
         id
         name
